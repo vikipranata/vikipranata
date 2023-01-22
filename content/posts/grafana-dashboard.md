@@ -15,8 +15,6 @@ Untuk memilih versi grafana yang akan digunakan bisa merujuk pada link [disini](
 ```bash
 # Download dan install paket grafana
 sudo dnf install https://dl.grafana.com/oss/release/grafana-8.5.15-1.x86_64.rpm
-# Install paket webserver dan certbot untuk mengenerate ssl dari let's encrypt
-sudo dnf install nginx certbot python3-certbot-nginx
 ```
 ## 2. Konfigurasi Grafana
 Disini kita perlu mengubah parameter _http_addr_ pada _/etc/grafana/grafana.ini_ agar default port _3000_ grafana listen pada localhost _127.0.0.1_
@@ -25,7 +23,9 @@ sudo nano /etc/grafana/grafana.ini
 # Ubah bagian ini
 http_addr = 127.0.0.1
 domain = monitor.syslog.my.id
-# Lalu memuat ulang service daemon, dan jalankan service grafana-server pada saat boot
+```
+Lalu memuat ulang daemon service, dan jalankan service grafana-server pada saat boot
+```bash
 sudo systemctl daemon-reload
 sudo systemctl enable --now grafana-server
 # Pastikan service sudah berjalan
@@ -33,13 +33,18 @@ sudo systemctl status grafana-server
 ```
 
 ## 3. Konfigurasi Reverse Proxy
-Setelah port 3000 sudah terbuka hanya pada localhost, maka kita perlu mengkonfigurasikan nginx sebagai reverse proxy server. Pertama kita perlu merubah konfigurasi nginx.conf seperti berikut:
+Setelah port 3000 sudah terbuka hanya pada localhost, maka kita perlu mengkonfigurasikan nginx sebagai reverse proxy server. Pertama kita perlu merubah konfigurasi nginx.conf seperti berikut:    
+
+Install paket webserver dan certbot untuk mengenerate ssl dari let's encrypt
+```bash
+sudo dnf install nginx certbot python3-certbot-nginx
+```
 ```bash
 # Kosongkan file konfigurasi nginx.conf
 sudo cat /dev/null > /etc/nginx/nginx.conf
 sudo nano /etc/nginx/nginx.conf
-# Lalu isi dengan konfigurasi baru
 ```
+Lalu isi dengan konfigurasi baru sebagai berikut :
 ```bash
 user nginx;
 worker_processes auto;

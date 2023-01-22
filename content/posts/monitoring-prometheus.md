@@ -16,17 +16,24 @@ sudo mkdir /etc/prometheus /var/lib/prometheus
 sudo chown prometheus:prometheus /etc/prometheus /var/lib/prometheus
 ```
 
-Untuk pemasanganya kita perlu mendownload terlebih dahulu binary file pada halaman [https://prometheus.io/download/](https://prometheus.io/download/) untuk memilih versi yang akan digunakan.
+Untuk pemasanganya kita perlu mendownload terlebih dahulu binari file pada halaman [https://prometheus.io/download/](https://prometheus.io/download/) untuk memilih versi yang akan digunakan.
 
 ```bash
 # Definisikan versi prometheus yang akan di install
 PROMETHEUS_VER=2.37.5
-wget https://github.com/prometheus/prometheus/releases/download/v$PROMETHEUS_VER/prometheus-$PROMETHEUS_VER.linux-amd64.tar.gz
-# Extract dan install binary file
+sudo wget https://github.com/prometheus/prometheus/releases/download/v$PROMETHEUS_VER/prometheus-$PROMETHEUS_VER.linux-amd64.tar.gz
+# extract dan pindah ke direktori prometheus
 sudo tar -zxvf prometheus-$PROMETHEUS_VER.linux-amd64.tar.gz && cd prometheus-$PROMETHEUS_VER.linux-amd64
+```
+
+Install file binari prometheus
+```bash
 sudo install -o prometheus -g prometheus prometheus /usr/local/bin
 sudo install -o prometheus -g prometheus promtool /usr/local/bin
-# Pindahkan direktori consoles dan console_libraries serta update ownership ke prometheus user
+```
+
+Pindahkan direktori consoles dan console_libraries serta update ownership ke prometheus user
+```bash
 sudo mv console* /etc/prometheus
 sudo chown -R prometheus:prometheus /etc/prometheus
 ```
@@ -38,6 +45,7 @@ sudo nano /etc/prometheus/prometheus.yaml
 # Sesuaikan dengan kebutuhan, dan update file ownership ke prometheus user
 sudo chown prometheus:prometheus /etc/prometheus/prometheus.yaml
 ```
+
 ```yaml
 global:
   scrape_interval: 10s
@@ -73,6 +81,7 @@ ExecStart=/usr/local/bin/prometheus \
 WantedBy=multi-user.target
 EOF
 ```
+
 Reload systemd service untuk mendaftarkan service yang baru, lalu jalankan pada saat system boot.
 ```bash
 sudo systemctl daemon-reload
@@ -80,7 +89,9 @@ sudo systemctl enable --now prometheus
 # Pastikan service sudah berjalan
 sudo systemctl status prometheus
 ```
+
 Bisa kita lanjutkan untuk administrasi via web console dengan menuju alamat url `http://<ip-server-prometheus>:9090/`
+
 # Referensi
 - https://github.com/prometheus/prometheus
 - https://devopscube.com/install-configure-prometheus-linux
