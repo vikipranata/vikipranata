@@ -39,11 +39,11 @@ sudo chown -R prometheus:prometheus /etc/prometheus
 ```
 
 ## 2. Konfigurasi Prometheus
-Buat file konfigurasi prometheus.yaml
+Buat file konfigurasi prometheus.yml
 ```bash
-sudo nano /etc/prometheus/prometheus.yaml
+sudo nano /etc/prometheus/prometheus.yml
 # Sesuaikan dengan kebutuhan, dan update file ownership ke prometheus user
-sudo chown prometheus:prometheus /etc/prometheus/prometheus.yaml
+sudo chown prometheus:prometheus /etc/prometheus/prometheus.yml
 ```
 
 ```yaml
@@ -51,10 +51,16 @@ global:
   scrape_interval: 10s
   evaluation_interval: 10s
 scrape_configs:
-  - job_name: 'prometheus'
+  - job_name: "prometheus"
     scrape_interval: 5s
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ["localhost:9090"]
+    # Relabeling "instance" to remove the ":9090" part
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(:[0-9]+)?'
+        replacement: '${1}'
 ```
 
 ## 3. Konfigurasi Service Prometheus
@@ -62,7 +68,7 @@ Buat file service systemd prometheus
 ```bash
 cat <<EOF | sudo tee /etc/systemd/system/prometheus.service
 [Unit]
-Description="The Prometheus monitoring system and time series database"
+Description="The Prometheus monitoring system and time series database."
 Wants=network-online.target
 After=network-online.target
 
