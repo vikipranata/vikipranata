@@ -104,8 +104,8 @@ EOF
 ```
 Download konfigurasi ssl tambahan
 ```bash
-curl https://ssl-config.mozilla.org/ffdhe2048.txt > /etc/letsencrypt/ssl-dhparams.pem
-curl https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/_internal/tls_configs/options-ssl-nginx.conf > /etc/letsencrypt/options-ssl-nginx.conf
+curl -sL https://ssl-config.mozilla.org/ffdhe2048.txt -o /etc/letsencrypt/ssl-dhparams.pem
+curl -sL https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/_internal/tls_configs/options-ssl-nginx.conf -o /etc/letsencrypt/options-ssl-nginx.conf
 ```
 
 Lakukan penguijan konfigurasi dengan perintah `nginx -t` jika tidak ada pesan error bisa langsung diterapkan konfiruasi yang baru dengan perintah `sudo systemctl reload nginx`.
