@@ -107,7 +107,7 @@ menu:
       weight: 10
     - identifier: About
       name: About
-      url: https://www.syslog.my.id/about
+      url: https://www.vikipranata.com/about
       weight: 10
     - identifier: Archives
       name: Archives
