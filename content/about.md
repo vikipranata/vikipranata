@@ -2,19 +2,24 @@
 author: "Viki Pranata"
 title: "About"
 date: "01-10-2022"
-description: "Tentang saya"
+description: "Halo"
 ---
+🌐 Website ini adalah catatan saya dalam pekerjaan sehari-hari dari segi teknis, tips dan trik, serta opini pribadi.
+Untuk melihat profil lengkap saya, silahkan kunjungi halaman linkedin saya [disini](https://www.linkedin.com/in/vikipranata/) 🙂.
 
-# Halo,
-Website ini adalah catatan saya dalam pekerjaan sehari-hari dari segi teknis, tips dan trik, serta opini pribadi.
-Untuk melihat profil lengkap saya, silahkan kunjungi halaman linkedin saya [disini](https://www.linkedin.com/in/vikipranata/)
+## Perjalanan Karir 👨‍💻
+1. [PT Harrisma Informatika Jaya](https://www.harrisma.com/), Praktek Kerja Industri (Magang), 2013-2014
+2. [PT Maxindo Mitra Solusi](https://www.maxindo.net.id), Technical Support, 2015 - 2018
+3. [PT Maxindo Mitra Solusi](https://www.maxindo.net.id), Systems Administrator, 2018 - 2022
+4. [PT Boer Technology (Btech)](https://www.btech.id), Cloud Engineer, 2022 - 2023
+5. [PT Biznet Gio Nusantara](https://www.biznetgio.com), Systems Operations Engineer, 2023 - Sekarang
 
-## Pencapaian saya
+## Pencapaian 🎉
 1. [Certified Kubernetes Administrator](https://www.tworty.id/assets/certificates/CKA-1.pdf), 10 Januari 2023
 2. [Certified OpenStack Administrator](https://www.tworty.id/assets/certificates/COA-1.pdf), 12 Januari 2023
 3. [Mikrotik Certified Network Associate](https://mikrotik.com/training/certificates/c268877cbbad0bc5a9fd), 20 Juli 2023
 
-## Pelatihan saya
+## Pelatihan 📖
 1. Coursera, [Google Cloud Platform Fundamentals: Core Infrastructure](https://www.tworty.id/assets/certificates/Coursera_WUDEXPXXFHC2.pdf), 21 Juni 2020
 2. Coursera, [Essential Cloud Infrastructure: Foundation](https://www.tworty.id/assets/certificates/Coursera_C6BD24GCYTCL.pdf), 06 Juli 2020
 3. DTS KOMINFO, [PROA - Container, Kubernetes & OpenShift](https://www.tworty.id/assets/certificates/DTSPROA0970975131-10.pdf), 30 April 2021

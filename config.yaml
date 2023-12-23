@@ -54,23 +54,18 @@ params:
     icon: assets/images/panda.png
     iconHeight: 20
 
-  homeInfoParams:
-    Title: "Halo, selamat datang \U0001F642"
-    Content: "Kenal lebih dekat dengan saya, klik tautan dibawah ini"
-
   profileMode:
       enabled: true
       title: "Viki Pranata"
-      subtitle: "Hai, 👋 kenal lebih dekat dengan saya, klik tautan dibawah ini."
+      subtitle: "Hai, kenal lebih dekat dengan saya, klik tautan dibawah ini. 👋"
       imageUrl: "assets/images/profile.jpg"
       imageTitle: "me"
       imageWidth: 200
       imageHeight: 200
-      # buttons:
-      #     - name: Blogs
-      #       url: https://www.tworty.id/blogs
-      #     - name: Badges
-      #       url: "https://www.credly.com/users/vikipranata"
+
+  homeInfoParams:
+    Title: "Halo, selamat datang \U0001F642"
+    Content: "Hai, kenal lebih dekat dengan saya, klik tautan dibawah ini. 👋"
 
   socialIcons:
     - name: email
@@ -81,6 +76,8 @@ params:
       url: "https://instagram.com/vikipranata"
     - name: twitter
       url: "https://twitter.com/vikipranata"
+    - name: credly
+      url: "https://www.credly.com/users/vikipranata"
     - name: github
       url: "https://github.com/vikipranata"
     - name: linkedin
@@ -122,10 +119,6 @@ menu:
     - identifier: Archives
       name: Archives
       url: /archives/
-      weight: 10
-    - identifier: Badges
-      name: Badges
-      url: "https://www.credly.com/users/vikipranata"
       weight: 10
     - identifier: Blogs
       name: Blogs
