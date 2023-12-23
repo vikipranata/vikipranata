@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>cloud on Viki Pranata</title>
+    <link>https://dev.tworty.id/tags/cloud/</link>
+    <description>Recent content in cloud on Viki Pranata</description>
+    <image>
+      <url>https://dev.tworty.id/97</url>
+      <link>https://dev.tworty.id/97</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 11 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dev.tworty.id/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cluster OpenStack dengan Ceph Storage</title>
+      <link>https://dev.tworty.id/posts/openstack-integrating-ceph/</link>
+      <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/openstack-integrating-ceph/</guid>
+      <description>Membuat cluster openstack dengan Kolla-Ansible serta mengintegrasikan dengan ceph storage untuk kebutuhan lab</description>
+    </item>
+    
+    <item>
+      <title>Metal as a Services (MaaS) for Lab</title>
+      <link>https://dev.tworty.id/posts/maas-for-lab/</link>
+      <pubDate>Thu, 08 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/maas-for-lab/</guid>
+      <description>Membuat MaaS untuk provisioner kebutuhan lab</description>
+    </item>
+    
+    <item>
+      <title>OpenStack Swift via Kolla Ansible</title>
+      <link>https://dev.tworty.id/posts/openstack-kolla-swift/</link>
+      <pubDate>Wed, 07 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/openstack-kolla-swift/</guid>
+      <description>Menambahkan layanan swift object storage pada openstack kolla ansible</description>
+    </item>
+    
+    <item>
+      <title>Cluster OpenStack dengan Kolla-Ansible</title>
+      <link>https://dev.tworty.id/posts/openstack-for-lab/</link>
+      <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/openstack-for-lab/</guid>
+      <description>Membuat cluster openstack dengan Kolla-Ansible untuk kebutuhan lab</description>
+    </item>
+    
+    <item>
+      <title>Mengoperasikan OpenStack Lewat CLI</title>
+      <link>https://dev.tworty.id/posts/openstack-operational-cli/</link>
+      <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/openstack-operational-cli/</guid>
+      <description>Mengoperasikan OpenStack lewat command line yang bisa digunakan untuk persiapan COA (Certified OpenStack Administrator)</description>
+    </item>
+    
+  </channel>
+</rss>

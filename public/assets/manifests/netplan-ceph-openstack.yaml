@@ -1,0 +1,80 @@
+---
+## os-controller
+network:
+  ethernets:
+    ens18: #provider network
+      mtu: 1500
+    ens19: #internal network
+      addresses:
+      - 10.79.0.10/24
+      gateway4: 10.79.0.1
+      nameservers:
+        addresses:
+        - 10.79.0.1
+    ens20: #ceph public network
+      addresses:
+      - 10.10.0.10/24
+  version: 2
+  vlans:
+    vlan19:
+      addresses:
+      - 10.79.10.10/24
+      id: 19
+      link: ens19
+---
+## os-compute01
+network:
+  ethernets:
+    ens18: #provider network
+      mtu: 1500
+    ens19: #internal network
+      addresses:
+      - 10.79.0.11/24
+      gateway4: 10.79.0.1
+      nameservers:
+        addresses:
+        - 10.79.0.1
+    ens20: #ceph public network
+      addresses:
+      - 10.10.0.11/24
+  version: 2
+  vlans:
+    vlan19: #selfservice network
+      addresses:
+      - 10.79.10.11/24
+      id: 19
+      link: ens19
+    vlan20: #ceph cluster network
+      addresses:
+      - 10.20.0.11/24
+      id: 20
+      link: ens20
+---
+## os-compute02
+network:
+  ethernets:
+    ens18: #provider network
+      mtu: 1500
+    ens19: #internal network
+      addresses:
+      - 10.79.0.12/24
+      gateway4: 10.79.0.1
+      nameservers:
+        addresses:
+        - 10.79.0.1
+    ens20: #ceph public network
+      addresses:
+      - 10.10.0.12/24
+  version: 2
+  vlans:
+    vlan19: #selfservice network
+      addresses:
+      - 10.79.10.11/24
+      id: 19
+      link: ens19
+    vlan20: #ceph cluster network
+      addresses:
+      - 10.20.0.12/24
+      id: 20
+      link: ens20
+---

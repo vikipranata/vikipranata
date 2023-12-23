@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Viki Pranata</title>
+    <link>https://dev.tworty.id/tags/</link>
+    <description>Recent content in Tags on Viki Pranata</description>
+    <image>
+      <url>https://dev.tworty.id/97</url>
+      <link>https://dev.tworty.id/97</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 26 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dev.tworty.id/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux</title>
+      <link>https://dev.tworty.id/tags/linux/</link>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Monitoring</title>
+      <link>https://dev.tworty.id/tags/monitoring/</link>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ceph</title>
+      <link>https://dev.tworty.id/tags/ceph/</link>
+      <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/tags/ceph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud</title>
+      <link>https://dev.tworty.id/tags/cloud/</link>
+      <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openstack</title>
+      <link>https://dev.tworty.id/tags/openstack/</link>
+      <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/tags/openstack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>storage</title>
+      <link>https://dev.tworty.id/tags/storage/</link>
+      <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/tags/storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MaaS</title>
+      <link>https://dev.tworty.id/tags/maas/</link>
+      <pubDate>Thu, 08 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/tags/maas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://dev.tworty.id/tags/kubernetes/</link>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>loadbalancer</title>
+      <link>https://dev.tworty.id/tags/loadbalancer/</link>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/tags/loadbalancer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nginx</title>
+      <link>https://dev.tworty.id/tags/nginx/</link>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>helm</title>
+      <link>https://dev.tworty.id/tags/helm/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/tags/helm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prometheus</title>
+      <link>https://dev.tworty.id/tags/prometheus/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/tags/prometheus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>https://dev.tworty.id/tags/tools/</link>
+      <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

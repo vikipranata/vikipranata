@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MaaS on Viki Pranata</title>
+    <link>https://dev.tworty.id/tags/maas/</link>
+    <description>Recent content in MaaS on Viki Pranata</description>
+    <image>
+      <url>https://dev.tworty.id/97</url>
+      <link>https://dev.tworty.id/97</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 08 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dev.tworty.id/tags/maas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Metal as a Services (MaaS) for Lab</title>
+      <link>https://dev.tworty.id/posts/maas-for-lab/</link>
+      <pubDate>Thu, 08 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/maas-for-lab/</guid>
+      <description>Membuat MaaS untuk provisioner kebutuhan lab</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://dev.tworty.id/sitemap.xml

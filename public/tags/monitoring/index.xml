@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Monitoring on Viki Pranata</title>
+    <link>https://dev.tworty.id/tags/monitoring/</link>
+    <description>Recent content in Monitoring on Viki Pranata</description>
+    <image>
+      <url>https://dev.tworty.id/97</url>
+      <link>https://dev.tworty.id/97</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 26 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dev.tworty.id/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monitoring Koneksi server dengan Blackbox Exporeter</title>
+      <link>https://dev.tworty.id/posts/monitoring-blackbox/</link>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/monitoring-blackbox/</guid>
+      <description>Membuat monitoring server dengan Blackbox</description>
+    </item>
+    
+    <item>
+      <title>Monitoring Utilisasi server dengan Node Exporter</title>
+      <link>https://dev.tworty.id/posts/monitoring-node-exporter/</link>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/monitoring-node-exporter/</guid>
+      <description>Membuat monitoring utilisasi server dengan Node Exporter</description>
+    </item>
+    
+    <item>
+      <title>Grafana Dashbaord dengan Reverse Proxy</title>
+      <link>https://dev.tworty.id/posts/grafana-dashboard/</link>
+      <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/grafana-dashboard/</guid>
+      <description>Membuat Grafana Dashboard dengan Nginx Reverse Proxy</description>
+    </item>
+    
+    <item>
+      <title>Monitoring dengan Prometheus</title>
+      <link>https://dev.tworty.id/posts/monitoring-prometheus/</link>
+      <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/monitoring-prometheus/</guid>
+      <description>Membuat monitoring server dengan Prometheus</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,107 @@
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: grafana-dashboard-pv
+  labels:
+    app: grafana-dashboard
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/var/lib/grafana"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: monitoring
+  name: grafana-dashboard-pvc
+spec:
+  storageClassName: manual
+  selector:
+    matchLabels:
+      app: grafana-dashboard
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: monitoring
+  name: grafana-dashboard
+  labels:
+    app: grafana-dashboard
+spec:
+  selector:
+    matchLabels:
+      app: grafana-dashboard
+  template:
+    metadata:
+      labels:
+        app: grafana-dashboard
+    spec:
+      securityContext:
+        fsGroup: 472
+        supplementalGroups:
+          - 0
+      containers:
+        - name: grafana
+          image: grafana/grafana:8.2.7
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsUser: 472
+            runAsGroup: 472
+          ports:
+            - containerPort: 3000
+              name: http-grafana
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /robots.txt
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 2
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 3000
+            timeoutSeconds: 1
+          resources:
+            requests:
+              cpu: 250m
+              memory: 750Mi
+          volumeMounts:
+            - mountPath: /var/lib/grafana
+              name: grafana-dashboard-pvc
+      volumes:
+        - name: grafana-dashboard-pvc
+          persistentVolumeClaim:
+            claimName: grafana-dashboard-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  ports:
+    - port: 3000
+      protocol: TCP
+      targetPort: http-grafana
+  selector:
+    app: grafana-dashboard
+  sessionAffinity: None
+  type: NodePort

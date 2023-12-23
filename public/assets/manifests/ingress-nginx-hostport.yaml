@@ -1,0 +1,333 @@
+apiVersion: scheduling.k8s.io/v1
+#description: This priority class should only be used by the pods installed using kubespray, because it takes from its manifests.
+kind: PriorityClass
+metadata:
+  name: ingress-nginx-hostport-cluster-ciritical
+preemptionPolicy: PreemptLowerPriority
+value: 1000000000
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ingress-nginx-hostport
+  labels:
+    name: ingress-nginx-hostport
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ingress-nginx-hostport
+  namespace: ingress-nginx-hostport
+  labels:
+    app.kubernetes.io/component: controller
+    app: ingress-nginx-hostport
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ingress-nginx-hostport
+  namespace: ingress-nginx-hostport
+  labels:
+    app.kubernetes.io/component: controller
+    app: ingress-nginx-hostport
+rules:
+  - apiGroups: [""]
+    resources: ["namespaces"]
+    verbs: ["get"]
+  - apiGroups: [""]
+    resources: ["configmaps", "pods", "secrets", "endpoints"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["services"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["extensions", "networking.k8s.io"]
+    resources: ["ingresses", "ingressclasses"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["extensions", "networking.k8s.io"]
+    resources: ["ingresses/status"]
+    verbs: ["update"]
+  - apiGroups: ["networking.k8s.io"]
+    resources: ["ingressclasses"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    # Defaults to "<election-id>-<ingress-class>"
+    # Here: "<ingress-controller-leader>-<nginx>"
+    # This has to be adapted if you change either parameter
+    # when launching the nginx-ingress-controller.
+    resourceNames: ["ingress-controller-leader"]
+    verbs: ["get", "update"]
+  - apiGroups: ["coordination.k8s.io"]
+    resources: ["leases"]
+    # Defaults to "<election-id>-<ingress-class>"
+    # Here: "<ingress-controller-leader>-<nginx>"
+    # This has to be adapted if you change either parameter
+    # when launching the nginx-ingress-controller.
+    resourceNames: ["ingress-controller-leader"]
+    verbs: ["get", "update"]
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["create", "update"]
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["create", "patch"]
+  - apiGroups: ["policy"]
+    resourceNames: ["ingress-nginx-hostport"]
+    resources: ["podsecuritypolicies"]
+    verbs: ["use"]
+  - apiGroups: ["coordination.k8s.io"]
+    resources: ["leases"]
+    # Defaults to "<election-id>-<ingress-class>"
+    # Here: "<ingress-controller-leader>-<nginx>"
+    # This has to be adapted if you change either parameter
+    # when launching the nginx-ingress-controller.
+    resourceNames: ["ingress-controller-leader"]
+    verbs: ["get", "update"]
+  - apiGroups: ["coordination.k8s.io"]
+    resources: ["leases"]
+    verbs: ["create"]
+  - apiGroups: ["discovery.k8s.io"]
+    resources: ["endpointslices"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ingress-nginx-hostport
+  namespace: ingress-nginx-hostport
+  labels:
+    app.kubernetes.io/component: controller
+    app: ingress-nginx-hostport
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ingress-nginx-hostport
+subjects:
+  - kind: ServiceAccount
+    name: ingress-nginx-hostport
+    namespace: ingress-nginx-hostport
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: ingress-nginx-hostport
+  labels:
+    app.kubernetes.io/component: controller
+    app: ingress-nginx-hostport
+rules:
+  - apiGroups: [""]
+    resources: ["configmaps", "endpoints", "nodes", "pods", "secrets"]
+    verbs: ["list", "watch"]
+  - apiGroups: [""]
+    resources: ["nodes"]
+    verbs: ["get"]
+  - apiGroups: [""]
+    resources: ["services"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["networking.k8s.io"]
+    resources: ["ingresses"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["create", "patch"]
+  - apiGroups: ["extensions","networking.k8s.io"]
+    resources: ["ingresses/status"]
+    verbs: ["update"]
+  - apiGroups: ["networking.k8s.io"]
+    resources: ["ingressclasses"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["coordination.k8s.io"]
+    resources: ["leases"]
+    verbs: ["list", "watch"]
+  - apiGroups: ["discovery.k8s.io"]
+    resources: ["endpointslices"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: ingress-nginx-hostport
+  labels:
+    app.kubernetes.io/component: controller
+    app: ingress-nginx-hostport
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: ingress-nginx-hostport
+subjects:
+  - kind: ServiceAccount
+    name: ingress-nginx-hostport
+    namespace: ingress-nginx-hostport
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ingress-nginx-hostport
+  namespace: ingress-nginx-hostport
+  labels:
+    app.kubernetes.io/component: controller
+    app: ingress-nginx-hostport
+data:
+  allow-snippet-annotations: "true"
+  use-forwarded-headers: "true"
+  use-proxy-protocol: "true"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tcp-services
+  namespace: ingress-nginx-hostport
+  labels:
+    app.kubernetes.io/component: controller
+    app: ingress-nginx-hostport
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: udp-services
+  namespace: ingress-nginx-hostport
+  labels:
+    app.kubernetes.io/component: controller
+    app: ingress-nginx-hostport
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ingress-nginx-hostport-controller
+  namespace: ingress-nginx-hostport
+  labels:
+    app.kubernetes.io/component: controller
+    app: ingress-nginx-hostport
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: controller
+      app: ingress-nginx-hostport
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: controller
+        app: ingress-nginx-hostport
+      annotations:
+        prometheus.io/port: "10254"
+        prometheus.io/scrape: "true"
+    spec:
+      serviceAccountName: ingress-nginx-hostport
+      terminationGracePeriodSeconds: 300
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+#      nodeSelector:
+#        node-role.kubernetes.io/ingress: ''
+#      tolerations:
+#          - key: CriticalAddonsOnly
+#            operator: Exists
+#          - effect: NoExecute
+#            operator: Exists
+#          - effect: NoSchedule
+#            operator: Exists
+      priorityClassName: ingress-nginx-hostport-cluster-ciritical
+      containers:
+        - name: ingress-nginx-hostport-controller
+          image: registry.k8s.io/ingress-nginx/controller:v1.8.1
+          imagePullPolicy: IfNotPresent
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - /wait-shutdown
+          args:
+            - /nginx-ingress-controller
+            - --configmap=$(POD_NAMESPACE)/ingress-nginx-hostport
+            - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services
+            - --udp-services-configmap=$(POD_NAMESPACE)/udp-services
+            - --report-node-internal-ip-address
+            - --annotations-prefix=nginx.ingress.kubernetes.io
+            - --controller-class=k8s.io/ingress-nginx-hostport
+            - --ingress-class=nginx-hostport
+            - --http-port=80
+            - --https-port=443
+            - --enable-ssl-passthrough
+          securityContext:
+            capabilities:
+                drop:
+                  - ALL
+                add:
+                  - NET_BIND_SERVICE
+            # www-data -> 101
+            runAsUser: 101
+            allowPrivilegeEscalation: true
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: LD_PRELOAD
+              value: /usr/local/lib/libmimalloc.so
+          ports:
+            - name: http
+              containerPort: 80
+              hostPort: 80
+            - name: https
+              containerPort: 443
+              hostPort: 443
+            - name: metrics
+              containerPort: 10254
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 10254
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 10254
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+---
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  name: nginx-hostport
+  labels:
+    app.kubernetes.io/component: controller
+    app: ingress-nginx-hostport
+  annotations:
+    ingressclass.kubernetes.io/is-default-class: "true"
+spec:
+  controller: k8s.io/ingress-nginx-hostport
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-nginx-nodeport
+  namespace: ingress-nginx-hostport
+spec:
+  type: NodePort
+  ports:
+  - nodePort: 30080
+    port: 80
+    protocol: TCP
+    targetPort: http
+    name: http
+  - nodePort: 30443
+    port: 443
+    protocol: TCP
+    targetPort: https
+    name: https
+  selector:
+    app.kubernetes.io/component: controller
+    app: ingress-nginx-hostport
+---

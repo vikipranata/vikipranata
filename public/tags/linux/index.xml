@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>linux on Viki Pranata</title>
+    <link>https://dev.tworty.id/tags/linux/</link>
+    <description>Recent content in linux on Viki Pranata</description>
+    <image>
+      <url>https://dev.tworty.id/97</url>
+      <link>https://dev.tworty.id/97</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 26 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dev.tworty.id/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monitoring Koneksi server dengan Blackbox Exporeter</title>
+      <link>https://dev.tworty.id/posts/monitoring-blackbox/</link>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/monitoring-blackbox/</guid>
+      <description>Membuat monitoring server dengan Blackbox</description>
+    </item>
+    
+    <item>
+      <title>Monitoring Utilisasi server dengan Node Exporter</title>
+      <link>https://dev.tworty.id/posts/monitoring-node-exporter/</link>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/monitoring-node-exporter/</guid>
+      <description>Membuat monitoring utilisasi server dengan Node Exporter</description>
+    </item>
+    
+    <item>
+      <title>Grafana Dashbaord dengan Reverse Proxy</title>
+      <link>https://dev.tworty.id/posts/grafana-dashboard/</link>
+      <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/grafana-dashboard/</guid>
+      <description>Membuat Grafana Dashboard dengan Nginx Reverse Proxy</description>
+    </item>
+    
+    <item>
+      <title>Monitoring dengan Prometheus</title>
+      <link>https://dev.tworty.id/posts/monitoring-prometheus/</link>
+      <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/monitoring-prometheus/</guid>
+      <description>Membuat monitoring server dengan Prometheus</description>
+    </item>
+    
+    <item>
+      <title>Cluster OpenStack dengan Ceph Storage</title>
+      <link>https://dev.tworty.id/posts/openstack-integrating-ceph/</link>
+      <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/openstack-integrating-ceph/</guid>
+      <description>Membuat cluster openstack dengan Kolla-Ansible serta mengintegrasikan dengan ceph storage untuk kebutuhan lab</description>
+    </item>
+    
+    <item>
+      <title>Metal as a Services (MaaS) for Lab</title>
+      <link>https://dev.tworty.id/posts/maas-for-lab/</link>
+      <pubDate>Thu, 08 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/maas-for-lab/</guid>
+      <description>Membuat MaaS untuk provisioner kebutuhan lab</description>
+    </item>
+    
+    <item>
+      <title>OpenStack Swift via Kolla Ansible</title>
+      <link>https://dev.tworty.id/posts/openstack-kolla-swift/</link>
+      <pubDate>Wed, 07 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/openstack-kolla-swift/</guid>
+      <description>Menambahkan layanan swift object storage pada openstack kolla ansible</description>
+    </item>
+    
+    <item>
+      <title>Load Balancer Ingress Kubernetes</title>
+      <link>https://dev.tworty.id/posts/loadbalancer-node-for-k8s/</link>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/loadbalancer-node-for-k8s/</guid>
+      <description>Membuat node load balancer untuk ingress kubernetes dengan NGINX</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes Monitoring dengan Prometheus Stack</title>
+      <link>https://dev.tworty.id/posts/monitoring-kube-prometheus-stack/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/monitoring-kube-prometheus-stack/</guid>
+      <description>Memonitoring Sumberdaya Kubernetes dengan kube-prometheus-stack</description>
+    </item>
+    
+    <item>
+      <title>Cluster High Availability Kubernetes Part 1</title>
+      <link>https://dev.tworty.id/posts/kubernetes-ha-part1/</link>
+      <pubDate>Tue, 15 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/kubernetes-ha-part1/</guid>
+      <description>Membuat cluster HA Kubernetes dengan Kubeadm untuk kebutuhan lab, development, staging maupun production</description>
+    </item>
+    
+    <item>
+      <title>Cluster High Availability Kubernetes Part 2</title>
+      <link>https://dev.tworty.id/posts/kubernetes-ha-part2/</link>
+      <pubDate>Tue, 15 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/kubernetes-ha-part2/</guid>
+      <description>Membuat cluster HA Kubernetes dengan Kubeadm untuk kebutuhan lab, development, staging maupun production</description>
+    </item>
+    
+    <item>
+      <title>Cluster High Availability Kubernetes Part 3</title>
+      <link>https://dev.tworty.id/posts/kubernetes-ha-part3/</link>
+      <pubDate>Tue, 15 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/kubernetes-ha-part3/</guid>
+      <description>Membuat cluster HA Kubernetes dengan Kubeadm untuk kebutuhan lab, development, staging maupun production</description>
+    </item>
+    
+    <item>
+      <title>Cluster Kubernetes for Lab</title>
+      <link>https://dev.tworty.id/posts/kubernetes-for-lab/</link>
+      <pubDate>Tue, 15 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/kubernetes-for-lab/</guid>
+      <description>Membuat cluster Kubernetes untuk kebutuhan lab</description>
+    </item>
+    
+    <item>
+      <title>Hal Yang Bisa Dilakukan Setelah Membangun Kubernetes</title>
+      <link>https://dev.tworty.id/posts/kubernetes-getting-started/</link>
+      <pubDate>Tue, 15 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/kubernetes-getting-started/</guid>
+      <description>hal yang bisa kita lakukan setelah membangun Kubernetes</description>
+    </item>
+    
+    <item>
+      <title>Cluster OpenStack dengan Kolla-Ansible</title>
+      <link>https://dev.tworty.id/posts/openstack-for-lab/</link>
+      <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/openstack-for-lab/</guid>
+      <description>Membuat cluster openstack dengan Kolla-Ansible untuk kebutuhan lab</description>
+    </item>
+    
+    <item>
+      <title>Mengoperasikan OpenStack Lewat CLI</title>
+      <link>https://dev.tworty.id/posts/openstack-operational-cli/</link>
+      <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/openstack-operational-cli/</guid>
+      <description>Mengoperasikan OpenStack lewat command line yang bisa digunakan untuk persiapan COA (Certified OpenStack Administrator)</description>
+    </item>
+    
+    <item>
+      <title>Memperbesar Kapasitas Partisi di Linux</title>
+      <link>https://dev.tworty.id/posts/resizedisk/</link>
+      <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.tworty.id/posts/resizedisk/</guid>
+      <description>Cara Memperbesar Kapasitas Partisi di Linux</description>
+    </item>
+    
+  </channel>
+</rss>

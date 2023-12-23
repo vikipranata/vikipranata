@@ -1,9 +1,9 @@
-baseURL: "https://blog.syslog.my.id/"
+baseURL: "https://www.tworty.id"
 title: "Viki Pranata"
 paginate: 5
 theme: PaperMod
 
-googleAnalytics: G-DX9576ZP5B
+googleAnalytics: G-FY6EQ643W7
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
@@ -18,10 +18,10 @@ params:
   env: production
   title: Viki Pranata
   description: "This is my journal"
-  keywords: [Blog, Portfolio, PaperMod]
+  keywords: [Blog, Portfolio, Technology, SysAdmin, SysOps]
   author: Me
   images: "assets/images/profile.jpg"
-  defaultTheme: light
+  defaultTheme: dark
   disableThemeToggle: false
   TocOpen: true
   ShowReadingTime: true
@@ -58,6 +58,20 @@ params:
     Title: "Halo, selamat datang \U0001F642"
     Content: "Kenal lebih dekat dengan saya, klik tautan dibawah ini"
 
+  profileMode:
+      enabled: true
+      title: "Viki Pranata"
+      subtitle: "Hai, 👋 kenal lebih dekat dengan saya, klik tautan dibawah ini."
+      imageUrl: "assets/images/profile.jpg"
+      imageTitle: "me"
+      imageWidth: 200
+      imageHeight: 200
+      # buttons:
+      #     - name: Blogs
+      #       url: https://www.tworty.id/blogs
+      #     - name: Badges
+      #       url: "https://www.credly.com/users/vikipranata"
+
   socialIcons:
     - name: email
       url: "mailto:helovikipranata@gmail.com"
@@ -78,7 +92,7 @@ params:
     hiddenInSingle: true
 
   editPost:
-    URL: "https://github.com/vikipranata/blog/blob/main/content"
+    URL: "https://github.com/vikipranata/vikipranata/blob/main/content"
     Text: "Suggest Changes"
     appendFilePath: true
 
@@ -101,17 +115,21 @@ outputs:
 
 menu:
   main:
-    - identifier: Posts
-      name: Posts
-      url: /posts/
-      weight: 10
     - identifier: About
       name: About
-      url: https://www.vikipranata.com/about
+      url: /about/
       weight: 10
     - identifier: Archives
       name: Archives
       url: /archives/
+      weight: 10
+    - identifier: Badges
+      name: Badges
+      url: "https://www.credly.com/users/vikipranata"
+      weight: 10
+    - identifier: Blogs
+      name: Blogs
+      url: /blogs/
       weight: 10
     - identifier: Search
       name: Search
