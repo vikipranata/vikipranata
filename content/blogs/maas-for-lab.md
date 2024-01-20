@@ -48,16 +48,16 @@ cat .ssh/id_rsa.pub
 
 ### MAAS Dashboard
 Akses url [http://10.79.0.100:5240/MAAS/](http://10.79.0.100:5240/MAAS/r/intro) dan ikuti langkah-langkah dibawah ini
-![image](/assets/images/maas/maas-setup1.png)
-![image](/assets/images/maas/maas-setup2.png)
-![image](/assets/images/maas/maas-setup3.png)
-![image](/assets/images/maas/maas-finish-setup.png)
+![image](/assets/images/maas/maas-setup1.webp)
+![image](/assets/images/maas/maas-setup2.webp)
+![image](/assets/images/maas/maas-setup3.webp)
+![image](/assets/images/maas/maas-finish-setup.webp)
 
 Import ssh public key yang kita buat di user maas
-![image](/assets/images/maas/maas-user-setup.png)
+![image](/assets/images/maas/maas-user-setup.webp)
 
 Kita bisa menambahkan ssh public key di user admin dengan cara ini :   
-![image](/assets/images/maas/maas-user-setup-ssh.png)
+![image](/assets/images/maas/maas-user-setup-ssh.webp)
 
 ## MAAS networking setup
 Akses url [http://10.79.0.100:5340/MAAS/r/networks](http://10.79.0.100:5240/MAAS/r/networks)   
@@ -75,11 +75,11 @@ buka dashborad lalu ikuti arahan ini:
 
 ### Menambahkan Space pada VLAN
 - Subnets -> klik vlan (untagged) -> edit -> space (pilih space)
-![image](/assets/images/maas/maas-network-dhcp-setup1.png)
+![image](/assets/images/maas/maas-network-dhcp-setup1.webp)
 
 ### Mengalokasikan ip statis dan dinamis
 - Subnets -> klik vlan (untagged) -> Reserve Range    
-![image](/assets/images/maas/maas-network-dhcp-setup2.png)
+![image](/assets/images/maas/maas-network-dhcp-setup2.webp)
 
 ### Membuat dhcp relay fabric-0
 Tambahkan beberapa konfigurasi pada external dhcp server dengan parameter berikut:
@@ -89,14 +89,14 @@ Tambahkan beberapa konfigurasi pada external dhcp server dengan parameter beriku
 
 ### Membuat dhcp server fabric-1
 - klik vlan (untagged) -> configure DHCP    
-![image](/assets/images/maas/maas-network-dhcp-setup3.png)
+![image](/assets/images/maas/maas-network-dhcp-setup3.webp)
 
 **Summary**
-![image](/assets/images/maas/maas-network-setup1.png)
+![image](/assets/images/maas/maas-network-setup1.webp)
 
 ### Menambahkan Mesin
 MAAS bisa digunakan untuk mendeploy mesin bare metal maupun mesin virtual seperti yang terlihat pada opsi _Power type_ dibawah ini:
-![image](/assets/images/maas/maas-add-machine.png)
+![image](/assets/images/maas/maas-add-machine.webp)
 
 untuk selanjutnya sesuaikan dengan environment lab.
 

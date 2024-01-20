@@ -8,7 +8,7 @@ showToc: true
 ---
 ## Persiapan Lab
 ### Topologi
-![image](/assets/images/ceph/openstack_ceph_topology.png)
+![image](/assets/images/ceph/openstack_ceph_topology.webp)
 
 ### Spesifikasi
 > **Harware**
@@ -73,7 +73,7 @@ sudo apt install -y gcc libffi-dev libssl-dev python3-dev python3-selinux python
 python3 -m venv ceph
 source ceph/bin/activate
 ```
-![image](/assets/images/ceph/kolla_activate.png)
+![image](/assets/images/ceph/kolla_activate.webp)
 
 Clone repositori ceph-ansible dan checkout versi stable-7.0 lalu install depndensi yang dibutuhkan
 ```bash
@@ -151,7 +151,7 @@ ansible-playbook -i hosts site.yml
 
 ### Membuat osd pool dan ceph auth
 Menghitung PG (Placement Group) dengan bantuan [pgcalc](https://old.ceph.com/pgcalc/)
-![image](/assets/images/ceph/pg-calc.png)
+![image](/assets/images/ceph/pg-calc.webp)
 Karena kita hanya memiliki 2 node compute dengan total 6 storage maka parameter pada gambar diatas diterapkan pada perintah berikut:
 ```bash
 sudo ceph osd pool create backups 64
@@ -189,7 +189,7 @@ mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=v
 ```
 
 Untuk melihat data authentikasi yang sudah dibuat gunakan perintah `sudo ceph auth list` atau seperti gambar dibawah ini:
-![image](/assets/images/ceph/ceph_auth.png)
+![image](/assets/images/ceph/ceph_auth.webp)
 
 Tambahkan konfigurasi berikut pada file `ceph.conf`
 ```bash
@@ -245,11 +245,11 @@ done
 - Cek detail pool osd degan perintah `sudo ceph osd pool ls detail`
 - Cek daftar authentikaai pool osd dengan perintah `sudo ceph auth ls`  
 
-![image](/assets/images/ceph/ceph_finish.png)
-[Click for detail](/assets/images/ceph/ceph_finish.png)
+![image](/assets/images/ceph/ceph_finish.webp)
+[Click for detail](/assets/images/ceph/ceph_finish.webp)
 
 Nonaktifkan ceph virtual environment dengan perintah `deactivate`
-![image](/assets/images/ceph/ceph_deactivate.png)
+![image](/assets/images/ceph/ceph_deactivate.webp)
 
 ## Deploy Openstack Yoga
 ### Memasang dependensi yang dibutuhkan oleh kolla-ansible
@@ -258,7 +258,7 @@ Membuat dan mengaktifkan virtual environment kolla
 python3 -m venv kolla
 source ~/kolla/bin/activate
 ```
-![image](/assets/images/ceph/kolla_activate.png)
+![image](/assets/images/ceph/kolla_activate.webp)
 
 Update pip dan install dependensi kolla-ansible
 ```bash
@@ -382,15 +382,15 @@ cp -r /etc/kolla/admin-openrc.sh ~/
 
 ### Memverifikasi layanan openstack
 Nonaktifkan kolla virtual environment dengan perintah `deactivate`
-![image](/assets/images/ceph/kolla_deactivate.png)
+![image](/assets/images/ceph/kolla_deactivate.webp)
 ```bash
 sudo apt install -y python3-openstackclient python3-swiftclient
 source ~/admin-openrc.sh
 ```
 
 Verifikasi dengan perintah berikut :
-![image](/assets/images/ceph/openstack_ceph_service.png)
-[Click for detail](/assets/images/ceph/openstack_ceph_service.png)
+![image](/assets/images/ceph/openstack_ceph_service.webp)
+[Click for detail](/assets/images/ceph/openstack_ceph_service.webp)
 
 # Destroy Cluster
 > Ceph

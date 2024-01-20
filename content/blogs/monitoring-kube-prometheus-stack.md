@@ -139,7 +139,7 @@ kubectl apply -f kube-prometheus-stack-ingress.yaml
 ```
 Lalu lihat service den ingress kube-prometheus-stack dengan perintah    
 `kubectl -n monitoring get svc` dan `kubectl -n monitoring get ingress`
-![image](/assets/images/k8s_service_prometheus_stack.png)
+![image](/assets/images/k8s_service_prometheus_stack.webp)
 
 ### Memperbaiki masalah yang terjadi
 ![image](/assets/images/kube-prometheus-stack-issue.jpg)
