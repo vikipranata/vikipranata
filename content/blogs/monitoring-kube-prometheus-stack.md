@@ -142,7 +142,7 @@ Lalu lihat service den ingress kube-prometheus-stack dengan perintah
 ![image](/assets/images/k8s_service_prometheus_stack.webp)
 
 ### Memperbaiki masalah yang terjadi
-![image](/assets/images/kube-prometheus-stack-issue.jpg)
+![image](/assets/images/kube-prometheus-stack-issue.webp)
 
 > Update configmap kube-proxy
 ```bash

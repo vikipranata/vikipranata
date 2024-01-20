@@ -94,7 +94,7 @@ sudo kubeadm config images pull
 sudo kubeadm init --control-plane-endpoint k8s-apiserver:8443 --upload-certs
 ```
 Akan mendapatkan hasil seperti berikut :
-![image](/assets/images/kubeadmsuccessfull.jpg)
+![image](/assets/images/kubeadmsuccessfull.webp)
 
 > Copy credentials kubernetes cluster
 ```bash
@@ -145,7 +145,7 @@ kubectl -n kube-system get pod
 kubectl get svc -A -o wide
 ```
 
-![image](/assets/images/k8s_resources.jpg)
+![image](/assets/images/k8s_resources.webp)
 
 ## Sumber Referensi
 - https://kubernetes.io/docs/tasks/administer-cluster/migrating-from-dockershim/change-runtime-containerd

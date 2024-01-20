@@ -141,7 +141,7 @@ copy hasil token tersebut dan untuk mengakses nya kita perlu menggunakan koneksi
 [`http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/`](
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
 
-![img](/assets/images/kube-dashboard.jpg)
+![img](/assets/images/kube-dashboard.webp)
 
 ## Menambahkan local-path provisioner
 Local path provisioner berfungsi untuk memanfaatkan penyimpanan lokal di setiap node dengan membuat PersistentVolumes berbasis hostPath atau local pada directory /opt/local-path-provisioner di setiap node secara otomatis. Untuk menerapkan manifest local-path dengan perintah berikut :

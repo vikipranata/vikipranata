@@ -25,7 +25,7 @@ Semua node menggunakan sistem operasi `Ubuntu 20.04 Focal` dengan versi `OpenSta
 
 ## Rancangan Topologi
 
-![image](/assets/images/Topologi-Openstack-Lab.png)
+![image](/assets/images/Topologi-Openstack-Lab.webp)
 
 ## Persiapan Cluster
 ### 1. Membuat dan mendistribusikan ssh public key
@@ -82,7 +82,7 @@ Membuat dan mengaktifkan virtual environment kolla
 python3 -m venv kolla
 source ~/kolla/bin/activate
 ```
-![image](/assets/images/kolla-activate.jpg)
+![image](/assets/images/kolla-activate.webp)
 
 Update pip dan install dependensi kolla-ansible
 ```bash
@@ -195,7 +195,7 @@ menonaktifkan kolla virtual environment
 ```bash
 deactivated
 ```
-![image](/assets/images/kolla-deactivate.jpg)
+![image](/assets/images/kolla-deactivate.webp)
 
 #### Menggunakan CLI OpenStack client
 ```bash
@@ -230,8 +230,8 @@ openstack compute service list && openstack service list
 
 #### Menggunakan GUI OpenStack
 Melihat kredensial username dan password pada file admin-openrc.sh
-![image](/assets/images/openstack-lab-1.jpg)
-![image](/assets/images/openstack-lab-2.jpg)
+![image](/assets/images/openstack-lab-1.webp)
+![image](/assets/images/openstack-lab-2.webp)
 
 Selanjutnya untuk tahap [mengoperasikan openstack via CLI](/posts/openstack-operational-cli)
 

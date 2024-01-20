@@ -13,7 +13,7 @@ Untuk mengoperasikan openstack ada beberapa langkah sebagai berikut ini :
 ## Mengakses Cluster
 ### Menggunakan OpenStack RC File
 RC file ini adalah kumpulan variable yang akan digunakan untuk mengakses openstack dengan user maupun project tertentu.
-![image](/assets/images/openstack-lab-1.jpg)
+![image](/assets/images/openstack-lab-1.webp)
 ```bash
 source ~/admin-openrc.sh
 ```

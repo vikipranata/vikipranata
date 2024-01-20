@@ -19,8 +19,8 @@ params:
   title: Viki Pranata
   description: "This is my journal"
   keywords: [Blog, Portfolio, Technology, SysAdmin, SysOps]
-  author: Me
-  images: "assets/images/profile.jpg"
+  author: Viki Pranata
+  images: "assets/images/profile.webp"
   defaultTheme: dark
   disableThemeToggle: false
   TocOpen: true
@@ -58,7 +58,7 @@ params:
       enabled: true
       title: "Viki Pranata"
       subtitle: "Hai, kenal lebih dekat dengan saya, klik tautan dibawah ini. 👋"
-      imageUrl: "assets/images/profile.jpg"
+      imageUrl: "assets/images/profile.webp"
       imageTitle: "me"
       imageWidth: 200
       imageHeight: 200

@@ -34,7 +34,7 @@ Namun kita bisa menerapkan ini pada environment virtual machine, cloud, maupun b
 | k8s-worker-node02 | 192.168.0.103 | Internal Network |
 
 ### Topologi
-![img](/assets/images/kube-lab.png)
+![img](/assets/images/kube-lab.webp)
 
 ## Inisialisasi VM OpenStack
 ### Membuat Port
@@ -163,7 +163,7 @@ sudo kubeadm config images pull
 sudo kubeadm init --control-plane-endpoint k8s-master-node:6443 --upload-certs --pod-network-cidr=10.244.0.0/16
 ```
 Akan mendapatkan hasil seperti berikut :
-![image](/assets/images/kubeadmsuccessfull.jpg)
+![image](/assets/images/kubeadmsuccessfull.webp)
 
 > Copy credentials kubernetes cluster
 ```bash
