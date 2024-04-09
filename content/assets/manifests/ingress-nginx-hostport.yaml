@@ -1,5 +1,4 @@
 apiVersion: scheduling.k8s.io/v1
-#description: This priority class should only be used by the pods installed using kubespray, because it takes from its manifests.
 kind: PriorityClass
 metadata:
   name: ingress-nginx-hostport-cluster-ciritical
@@ -9,168 +8,360 @@ value: 1000000000
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: ingress-nginx-hostport
   labels:
-    name: ingress-nginx-hostport
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+  name: ingress-nginx-hostport
+---
+apiVersion: v1
+automountServiceAccountToken: true
+kind: ServiceAccount
+metadata:
+  labels:
+    app.kubernetes.io/component: controller-ingress-hostport
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
+  name: ingress-nginx-hostport
+  namespace: ingress-nginx-hostport
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: ingress-nginx-hostport
-  namespace: ingress-nginx-hostport
   labels:
-    app.kubernetes.io/component: controller
-    app: ingress-nginx-hostport
+    app.kubernetes.io/component: admission-webhook-ingress-hostport
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
+  name: ingress-nginx-hostport-admission
+  namespace: ingress-nginx-hostport
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
+  labels:
+    app.kubernetes.io/component: controller-ingress-hostport
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
   name: ingress-nginx-hostport
   namespace: ingress-nginx-hostport
-  labels:
-    app.kubernetes.io/component: controller
-    app: ingress-nginx-hostport
 rules:
-  - apiGroups: [""]
-    resources: ["namespaces"]
-    verbs: ["get"]
-  - apiGroups: [""]
-    resources: ["configmaps", "pods", "secrets", "endpoints"]
-    verbs: ["get", "list", "watch"]
-  - apiGroups: [""]
-    resources: ["services"]
-    verbs: ["get", "list", "watch"]
-  - apiGroups: ["extensions", "networking.k8s.io"]
-    resources: ["ingresses", "ingressclasses"]
-    verbs: ["get", "list", "watch"]
-  - apiGroups: ["extensions", "networking.k8s.io"]
-    resources: ["ingresses/status"]
-    verbs: ["update"]
-  - apiGroups: ["networking.k8s.io"]
-    resources: ["ingressclasses"]
-    verbs: ["get", "list", "watch"]
-  - apiGroups: [""]
-    resources: ["configmaps"]
-    # Defaults to "<election-id>-<ingress-class>"
-    # Here: "<ingress-controller-leader>-<nginx>"
-    # This has to be adapted if you change either parameter
-    # when launching the nginx-ingress-controller.
-    resourceNames: ["ingress-controller-leader"]
-    verbs: ["get", "update"]
-  - apiGroups: ["coordination.k8s.io"]
-    resources: ["leases"]
-    # Defaults to "<election-id>-<ingress-class>"
-    # Here: "<ingress-controller-leader>-<nginx>"
-    # This has to be adapted if you change either parameter
-    # when launching the nginx-ingress-controller.
-    resourceNames: ["ingress-controller-leader"]
-    verbs: ["get", "update"]
-  - apiGroups: [""]
-    resources: ["configmaps"]
-    verbs: ["create", "update"]
-  - apiGroups: [""]
-    resources: ["events"]
-    verbs: ["create", "patch"]
-  - apiGroups: ["policy"]
-    resourceNames: ["ingress-nginx-hostport"]
-    resources: ["podsecuritypolicies"]
-    verbs: ["use"]
-  - apiGroups: ["coordination.k8s.io"]
-    resources: ["leases"]
-    # Defaults to "<election-id>-<ingress-class>"
-    # Here: "<ingress-controller-leader>-<nginx>"
-    # This has to be adapted if you change either parameter
-    # when launching the nginx-ingress-controller.
-    resourceNames: ["ingress-controller-leader"]
-    verbs: ["get", "update"]
-  - apiGroups: ["coordination.k8s.io"]
-    resources: ["leases"]
-    verbs: ["create"]
-  - apiGroups: ["discovery.k8s.io"]
-    resources: ["endpointslices"]
-    verbs: ["get", "list", "watch"]
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - get
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  - pods
+  - secrets
+  - endpoints
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - services
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingresses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingresses/status
+  verbs:
+  - update
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingressclasses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - coordination.k8s.io
+  resourceNames:
+  - ingress-nginx-hostport-leader
+  resources:
+  - leases
+  verbs:
+  - get
+  - update
+- apiGroups:
+  - coordination.k8s.io
+  resources:
+  - leases
+  verbs:
+  - create
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+- apiGroups:
+  - discovery.k8s.io
+  resources:
+  - endpointslices
+  verbs:
+  - list
+  - watch
+  - get
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  labels:
+    app.kubernetes.io/component: admission-webhook-ingress-hostport
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
+  name: ingress-nginx-hostport-admission
+  namespace: ingress-nginx-hostport
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
+  - create
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
+  name: ingress-nginx-hostport
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  - endpoints
+  - nodes
+  - pods
+  - secrets
+  - namespaces
+  verbs:
+  - list
+  - watch
+- apiGroups:
+  - coordination.k8s.io
+  resources:
+  - leases
+  verbs:
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - get
+- apiGroups:
+  - ""
+  resources:
+  - services
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingresses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingresses/status
+  verbs:
+  - update
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingressclasses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - discovery.k8s.io
+  resources:
+  - endpointslices
+  verbs:
+  - list
+  - watch
+  - get
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/component: admission-webhook-ingress-hostport
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
+  name: ingress-nginx-hostport-admission
+rules:
+- apiGroups:
+  - admissionregistration.k8s.io
+  resources:
+  - validatingwebhookconfigurations
+  verbs:
+  - get
+  - update
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
+  labels:
+    app.kubernetes.io/component: controller-ingress-hostport
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
   name: ingress-nginx-hostport
   namespace: ingress-nginx-hostport
-  labels:
-    app.kubernetes.io/component: controller
-    app: ingress-nginx-hostport
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
   name: ingress-nginx-hostport
 subjects:
-  - kind: ServiceAccount
-    name: ingress-nginx-hostport
-    namespace: ingress-nginx-hostport
+- kind: ServiceAccount
+  name: ingress-nginx-hostport
+  namespace: ingress-nginx-hostport
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
+kind: RoleBinding
 metadata:
-  name: ingress-nginx-hostport
   labels:
-    app.kubernetes.io/component: controller
-    app: ingress-nginx-hostport
-rules:
-  - apiGroups: [""]
-    resources: ["configmaps", "endpoints", "nodes", "pods", "secrets"]
-    verbs: ["list", "watch"]
-  - apiGroups: [""]
-    resources: ["nodes"]
-    verbs: ["get"]
-  - apiGroups: [""]
-    resources: ["services"]
-    verbs: ["get", "list", "watch"]
-  - apiGroups: ["networking.k8s.io"]
-    resources: ["ingresses"]
-    verbs: ["get", "list", "watch"]
-  - apiGroups: [""]
-    resources: ["events"]
-    verbs: ["create", "patch"]
-  - apiGroups: ["extensions","networking.k8s.io"]
-    resources: ["ingresses/status"]
-    verbs: ["update"]
-  - apiGroups: ["networking.k8s.io"]
-    resources: ["ingressclasses"]
-    verbs: ["get", "list", "watch"]
-  - apiGroups: ["coordination.k8s.io"]
-    resources: ["leases"]
-    verbs: ["list", "watch"]
-  - apiGroups: ["discovery.k8s.io"]
-    resources: ["endpointslices"]
-    verbs: ["get", "list", "watch"]
+    app.kubernetes.io/component: admission-webhook-ingress-hostport
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
+  name: ingress-nginx-hostport-admission
+  namespace: ingress-nginx-hostport
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ingress-nginx-hostport-admission
+subjects:
+- kind: ServiceAccount
+  name: ingress-nginx-hostport-admission
+  namespace: ingress-nginx-hostport
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: ingress-nginx-hostport
   labels:
-    app.kubernetes.io/component: controller
-    app: ingress-nginx-hostport
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
+  name: ingress-nginx-hostport
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: ingress-nginx-hostport
 subjects:
-  - kind: ServiceAccount
-    name: ingress-nginx-hostport
-    namespace: ingress-nginx-hostport
+- kind: ServiceAccount
+  name: ingress-nginx-hostport
+  namespace: ingress-nginx-hostport
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/component: admission-webhook-ingress-hostport
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
+  name: ingress-nginx-hostport-admission
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: ingress-nginx-hostport-admission
+subjects:
+- kind: ServiceAccount
+  name: ingress-nginx-hostport-admission
+  namespace: ingress-nginx-hostport
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: ingress-nginx-hostport
+  name: ingress-nginx-hostport-controller
   namespace: ingress-nginx-hostport
   labels:
-    app.kubernetes.io/component: controller
-    app: ingress-nginx-hostport
+    app.kubernetes.io/component: controller-ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
 data:
-  allow-snippet-annotations: "true"
+  allow-snippet-annotations: "false"
+  compute-full-forwarded-for: "true"
   use-forwarded-headers: "true"
   use-proxy-protocol: "true"
+  enable-modsecurity: "true"
+  enable-owasp-modsecurity-crs: "true"
+  modsecurity-snippet: |
+    # By default is DetectionOnly. Can be any of: DetectionOnly,On,Off
+    SecRuleEngine DetectionOnly
+    # Avoid sending status information about ModSecurity in response header
+    SecStatusEngine Off
+    # Send ModSecurity audit logs to the stdout (only for rejected requests)
+    SecAuditLog /dev/stdout
+    SecAuditLogFormat JSON
+    SecAuditEngine RelevantOnly # could be On/Off/RelevantOnly
+    # Max request sizes in bytes (with/without files) - Note NGINX Ingress has its own parameter/annotation that should be kept in sync
+    SecRequestBodyLimit 20971520 # 20Mb (default is 12.5Mb)
+    SecRequestBodyNoFilesLimit 262144 # 250Kb (default is 128Kb)
+    SecRequestBodyLimitAction Reject # Reject if larger (we could also let it pass with ProcessPartial)
+    # recommended limits for regular expression recursion. See https://github.com/SpiderLabs/owasp-modsecurity-crs/issues/656#issuecomment-262780221
+    SecPcreMatchLimit 500000
+    SecPcreMatchLimitRecursion 500000
+    # Include PUT/PATCH/DELETE in the allowed methods, otherwise those verbs will be rejected by rule 911100
+    SecAction "id:900200,phase:1,nolog,pass,t:none,\
+      setvar:tx.allowed_methods=GET HEAD POST OPTIONS PUT PATCH DELETE"
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -178,8 +369,11 @@ metadata:
   name: tcp-services
   namespace: ingress-nginx-hostport
   labels:
-    app.kubernetes.io/component: controller
-    app: ingress-nginx-hostport
+    app.kubernetes.io/component: controller-ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -187,8 +381,34 @@ metadata:
   name: udp-services
   namespace: ingress-nginx-hostport
   labels:
-    app.kubernetes.io/component: controller
-    app: ingress-nginx-hostport
+    app.kubernetes.io/component: controller-ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/component: controller-ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
+  name: ingress-nginx-hostport-controller-admission
+  namespace: ingress-nginx-hostport
+spec:
+  ports:
+  - appProtocol: https
+    name: https-webhook
+    port: 443
+    targetPort: webhook
+  selector:
+    app.kubernetes.io/component: controller-ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: DaemonSet
@@ -196,18 +416,25 @@ metadata:
   name: ingress-nginx-hostport-controller
   namespace: ingress-nginx-hostport
   labels:
-    app.kubernetes.io/component: controller
-    app: ingress-nginx-hostport
+    app.kubernetes.io/component: controller-ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/component: controller
-      app: ingress-nginx-hostport
+      app.kubernetes.io/component: controller-ingress-nginx
+      app.kubernetes.io/instance: ingress-nginx-hostport
+      app.kubernetes.io/name: ingress-nginx-hostport
   template:
     metadata:
       labels:
-        app.kubernetes.io/component: controller
-        app: ingress-nginx-hostport
+        app.kubernetes.io/component: controller-ingress-nginx
+        app.kubernetes.io/instance: ingress-nginx-hostport
+        app.kubernetes.io/name: ingress-nginx-hostport
+        app.kubernetes.io/part-of: ingress-nginx-hostport
+        app.kubernetes.io/version: 1.9.6
       annotations:
         prometheus.io/port: "10254"
         prometheus.io/scrape: "true"
@@ -216,46 +443,31 @@ spec:
       terminationGracePeriodSeconds: 300
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
-#      nodeSelector:
-#        node-role.kubernetes.io/ingress: ''
-#      tolerations:
-#          - key: CriticalAddonsOnly
-#            operator: Exists
-#          - effect: NoExecute
-#            operator: Exists
-#          - effect: NoSchedule
-#            operator: Exists
+      nodeSelector:
+        node-role.kubernetes.io/ingress: 'true'
+      tolerations:
+          - key: node-role.kubernetes.io/ingress
+            value: "true"
+            effect: "NoSchedule"
+            operator: "Equal"
       priorityClassName: ingress-nginx-hostport-cluster-ciritical
       containers:
-        - name: ingress-nginx-hostport-controller
-          image: registry.k8s.io/ingress-nginx/controller:v1.8.1
-          imagePullPolicy: IfNotPresent
-          lifecycle:
-            preStop:
-              exec:
-                command:
-                  - /wait-shutdown
-          args:
+        - args:
             - /nginx-ingress-controller
-            - --configmap=$(POD_NAMESPACE)/ingress-nginx-hostport
-            - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services
-            - --udp-services-configmap=$(POD_NAMESPACE)/udp-services
-            - --report-node-internal-ip-address
-            - --annotations-prefix=nginx.ingress.kubernetes.io
+            - --election-id=ingress-nginx-hostport-leader
             - --controller-class=k8s.io/ingress-nginx-hostport
             - --ingress-class=nginx-hostport
+            - --configmap=$(POD_NAMESPACE)/ingress-nginx-hostport-controller
+            - --validating-webhook=:8443
+            - --validating-webhook-certificate=/usr/local/certificates/cert
+            - --validating-webhook-key=/usr/local/certificates/key
+            - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services
+            - --udp-services-configmap=$(POD_NAMESPACE)/udp-services
+            - --annotations-prefix=nginx.ingress.kubernetes.io
+            - --report-node-internal-ip-address
             - --http-port=80
             - --https-port=443
             - --enable-ssl-passthrough
-          securityContext:
-            capabilities:
-                drop:
-                  - ALL
-                add:
-                  - NET_BIND_SERVICE
-            # www-data -> 101
-            runAsUser: 101
-            allowPrivilegeEscalation: true
           env:
             - name: POD_NAME
               valueFrom:
@@ -267,15 +479,26 @@ spec:
                   fieldPath: metadata.namespace
             - name: LD_PRELOAD
               value: /usr/local/lib/libmimalloc.so
+          name: controller
+          image: registry.k8s.io/ingress-nginx/controller:v1.9.6@sha256:1405cc613bd95b2c6edd8b2a152510ae91c7e62aea4698500d23b2145960ab9c
+          imagePullPolicy: IfNotPresent
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - /wait-shutdown
           ports:
-            - name: http
-              containerPort: 80
-              hostPort: 80
-            - name: https
-              containerPort: 443
-              hostPort: 443
-            - name: metrics
-              containerPort: 10254
+          - containerPort: 80
+            name: http
+            protocol: TCP
+          - containerPort: 443
+            name: https
+            protocol: TCP
+          - containerPort: 8443
+            name: webhook
+            protocol: TCP
+          - name: metrics
+            containerPort: 10254
           livenessProbe:
             httpGet:
               path: /healthz
@@ -296,38 +519,176 @@ spec:
             timeoutSeconds: 5
             successThreshold: 1
             failureThreshold: 3
+          securityContext:
+            capabilities:
+                drop:
+                  - ALL
+                add:
+                  - NET_BIND_SERVICE
+            # www-data -> 101
+            runAsUser: 101
+            allowPrivilegeEscalation: true
+            readOnlyRootFilesystem: false
+            runAsNonRoot: true
+            seccompProfile:
+              type: RuntimeDefault
+          volumeMounts:
+          - mountPath: /usr/local/certificates/
+            name: webhook-cert
+            readOnly: true
+      volumes:
+      - name: webhook-cert
+        secret:
+          secretName: ingress-nginx-hostport-admission
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    app.kubernetes.io/component: admission-webhook-ingress-hostport
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
+  name: ingress-nginx-hostport-admission-create
+  namespace: ingress-nginx-hostport
+spec:
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: admission-webhook-ingress-hostport
+        app.kubernetes.io/instance: ingress-nginx-hostport
+        app.kubernetes.io/name: ingress-nginx-hostport
+        app.kubernetes.io/part-of: ingress-nginx-hostport
+        app.kubernetes.io/version: 1.9.6
+      name: ingress-nginx-hostport-admission-create
+    spec:
+      containers:
+      - args:
+        - create
+        - --host=ingress-nginx-hostport-controller-admission,ingress-nginx-hostport-controller-admission.$(POD_NAMESPACE).svc
+        - --namespace=$(POD_NAMESPACE)
+        - --secret-name=ingress-nginx-hostport-admission
+        env:
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        image: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20231226-1a7112e06@sha256:25d6a5f11211cc5c3f9f2bf552b585374af287b4debf693cacbe2da47daa5084
+        imagePullPolicy: IfNotPresent
+        name: create
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 65532
+          seccompProfile:
+            type: RuntimeDefault
+      nodeSelector:
+        kubernetes.io/os: linux
+      restartPolicy: OnFailure
+      serviceAccountName: ingress-nginx-hostport-admission
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    app.kubernetes.io/component: admission-webhook-ingress-hostport
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
+  name: ingress-nginx-hostport-admission-patch
+  namespace: ingress-nginx-hostport
+spec:
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: admission-webhook-ingress-hostport
+        app.kubernetes.io/instance: ingress-nginx-hostport
+        app.kubernetes.io/name: ingress-nginx-hostport
+        app.kubernetes.io/part-of: ingress-nginx-hostport
+        app.kubernetes.io/version: 1.9.6
+      name: ingress-nginx-hostport-admission-patch
+    spec:
+      containers:
+      - args:
+        - patch
+        - --webhook-name=ingress-nginx-hostport-admission
+        - --namespace=$(POD_NAMESPACE)
+        - --patch-mutating=false
+        - --secret-name=ingress-nginx-hostport-admission
+        - --patch-failure-policy=Fail
+        env:
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        image: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20231226-1a7112e06@sha256:25d6a5f11211cc5c3f9f2bf552b585374af287b4debf693cacbe2da47daa5084
+        imagePullPolicy: IfNotPresent
+        name: patch
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 65532
+          seccompProfile:
+            type: RuntimeDefault
+      nodeSelector:
+        kubernetes.io/os: linux
+      restartPolicy: OnFailure
+      serviceAccountName: ingress-nginx-hostport-admission
 ---
 apiVersion: networking.k8s.io/v1
 kind: IngressClass
 metadata:
   name: nginx-hostport
   labels:
-    app.kubernetes.io/component: controller
-    app: ingress-nginx-hostport
+    app.kubernetes.io/component: controller-ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
   annotations:
     ingressclass.kubernetes.io/is-default-class: "true"
 spec:
   controller: k8s.io/ingress-nginx-hostport
 ---
-apiVersion: v1
-kind: Service
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
 metadata:
-  name: ingress-nginx-nodeport
-  namespace: ingress-nginx-hostport
-spec:
-  type: NodePort
-  ports:
-  - nodePort: 30080
-    port: 80
-    protocol: TCP
-    targetPort: http
-    name: http
-  - nodePort: 30443
-    port: 443
-    protocol: TCP
-    targetPort: https
-    name: https
-  selector:
-    app.kubernetes.io/component: controller
-    app: ingress-nginx-hostport
----
+  labels:
+    app.kubernetes.io/component: admission-webhook-ingress-hostport
+    app.kubernetes.io/instance: ingress-nginx-hostport-hostport
+    app.kubernetes.io/name: ingress-nginx-hostport
+    app.kubernetes.io/part-of: ingress-nginx-hostport
+    app.kubernetes.io/version: 1.9.6
+  name: ingress-nginx-hostport-admission
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: ingress-nginx-hostport-controller-admission
+      namespace: ingress-nginx-hostport
+      path: /networking/v1/ingresses
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: validate.nginx.ingress.kubernetes.io
+  rules:
+  - apiGroups:
+    - networking.k8s.io
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - ingresses
+  sideEffects: None
