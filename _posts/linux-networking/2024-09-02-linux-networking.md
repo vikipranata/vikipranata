@@ -1,7 +1,7 @@
 ---
 title: "Linux Networking"
-date: 2024-09-03 09:10:00 +0700
-modified: 2024-09-03 09:10:00 +0700
+date: 2024-09-02 09:10:00 +0700
+modified: 2024-09-02 09:10:00 +0700
 tags: [linux, networking, router]
 description: ""
 ---

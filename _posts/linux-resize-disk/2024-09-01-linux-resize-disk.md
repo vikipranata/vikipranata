@@ -1,7 +1,7 @@
 ---
 title: "Linux Resize Disk"
-date: 2024-09-03 09:00:00 +0700
-modified: 2024-09-03 15:00:00 +0700
+date: 2024-09-01 09:00:00 +0700
+modified: 2024-09-01 15:00:00 +0700
 tags: [linux, storage, resize]
 description: ""
 ---
