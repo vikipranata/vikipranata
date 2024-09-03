@@ -1,0 +1,89 @@
+# Site settings
+title: Viki Pranata
+description: >-
+  This website contains some of my notes from daily work. I'm writing here so I don't forget.
+lang: en-US
+timezone: Asia/Jakarta
+image: assets/img/favicon.png
+repo: https://github.com/vikipranata/vikipranata
+mode: dark
+
+# Profile settings
+author:
+  name: Viki Pranata
+  bio: >- 
+    This website contains some of my notes from daily work. I'm writing here so I don't forget.
+  username: vikipranata
+  github: vikipranata
+  twitter: vikipranata
+  email: contact@syslog.id
+  avatar: /assets/img/avatar.webp
+
+# URL settings
+url: "https://www.syslog.id"
+baseurl: "https://www.syslog.id"
+permalink: /:title/
+google_analytics: # leave it blank if not wish
+fb_appid: ""
+
+# Collection setting
+collections:
+  posts:
+    output: true
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: post
+      comments: false
+
+# Jekyll Compose default front matter
+jekyll_compose:
+  post_default_front_matter:
+    modified:
+    tags: []
+    description:
+  draft_default_front_matter:
+    modified:
+    tags: []
+    description:
+
+# Homepage limit posts
+number_of_posts: 5
+
+# Build settings
+# theme: klise
+sass:
+  style: compressed
+
+include:
+  - _redirects
+  - .htaccess
+
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - CHANGELOG.md
+  - README.md
+  - node_modules
+  - CODE_OF_CONDUCT.md
+  - CONTRIBUTING.md
+  - lighthouse.png
+  - klise-*.gem
+  - klise.gemspec
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-postfiles
