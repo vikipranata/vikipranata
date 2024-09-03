@@ -1,5 +1,5 @@
 ---
-title: "Linux Resize Disk"
+title: "Linux Join Active Directory"
 date: 2024-09-03 09:20:00 +0700
 modified: 2024-09-03 09:20:00 +0700
 tags: [linux, ldap, active-directory]
