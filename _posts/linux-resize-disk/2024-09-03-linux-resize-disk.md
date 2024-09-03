@@ -6,7 +6,7 @@ tags: [linux, storage, resize]
 description: ""
 ---
 
-#### **Expand Space without Rebooting VM**
+# **Expand Space without Rebooting VM**
 Current usage disk with `lsblk` command
 ![disk-overview.png](disk-overview.png)  
 
@@ -33,6 +33,7 @@ vgs
 ```
 
 ![pvresize-result.png](pvresize-result.png)
+
 Now you're ready to extent the LVM partition
 ```bash
 lvresize --extents +100%FREE --resizefs /dev/vg0/root
@@ -46,7 +47,7 @@ lvresize --size +20G --resizefs /dev/vg0/root
 ```
 
 
-####**Expand Space without Rebooting VM in ESXi Guest Host**
+# **Expand Space without Rebooting VM in ESXi Guest Host**
 **Re-scan** the **SCSI** Bus to Add a SCSI Device Without rebooting the VM using the following command  
 First, check the name(s) of your scsi devices.  
 ```bash
