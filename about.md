@@ -4,12 +4,11 @@ permalink: /about/
 layout: page
 comments: false
 ---
-This website is contains some of my notes from daily work from a technical perspective, tips and tricks, and practice.    
-To view my full profile, please connect to me on [linkedin](https://www.linkedin.com/in/vikipranata)
+This website is contains some of my notes from daily work from a technical perspective, tips and tricks, and practice. To view my full profile, please connect to me on [linkedin](https://www.linkedin.com/in/vikipranata)
 
 # Career
 1. [PT Maxindo Mitra Solusi](https://www.maxindo.net.id), Technical Support, 2015 - 2018
-2. [PT Maxindo Mitra Solusi](https://www.maxindo.net.id Systems Administrator, 2018 - 2022
+2. [PT Maxindo Mitra Solusi](https://www.maxindo.net.id), Systems Administrator, 2018 - 2022
 3. [PT Boer Technology (Btech)](https://www.btech.id), Cloud Engineer, 2022 - 2023
 4. [PT Biznet Gio Nusantara](https://www.biznetgio.com), Systems Operations Engineer, 2023 - 2024
 5. [PT Biznet Gio Nusantara](https://www.biznetgio.com), IT Architecture Engineer, 2024 - now
