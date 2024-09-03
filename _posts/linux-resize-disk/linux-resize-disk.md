@@ -1,0 +1,62 @@
+---
+title: Linux Resize Disk
+date: 2024-03-09 09:00:00 +07:00
+modified: 2024-03-09 09:00:00 +07:00
+tags: [linux, active-directory]
+description: ""
+---
+# **Expand Space without Rebooting VM**
+
+Current usage disk with `lsblk` command
+[![disk-overview.png](disk-overview.png)  
+
+And here is LVM partition table  
+[![lvm-overview.png](lvm-overview.png)
+
+First step we need grow partition in `/dev/sda3`, install package growpart first  
+```bash
+dnf install -y cloud-utils-growpart
+```
+Then we resize partition with this command
+```bash
+growpart /dev/sda 3
+```
+[![image.png](https://docs.tworty.com/uploads/images/gallery/2024-08/scaled-1680-/B2aIlihth0qYCBzd-image.png)](https://docs.tworty.com/uploads/images/gallery/2024-08/B2aIlihth0qYCBzd-image.png)
+
+See the different before and after, if you don't use LVM partition scheme just execute `resize2fs /dev/sda3` to full fill the partition.
+```bash
+pvresize /dev/sda3
+pvs
+vgs
+```
+[![growpart-result.png](growpart-result.png)
+
+Now you're ready to extent the LVM partition
+```bash
+lvresize --extents +100%FREE --resizefs /dev/vg0/root
+```
+
+[![pvresize-result.png](pvresize-result.png)
+
+If you just resize partition only 20%, this sample command
+```bash
+lvresize --size +20G --resizefs /dev/vg0/root
+```
+
+# **Expand Space without Rebooting VM in ESXi Guest Host**
+
+**Re-scan** the **SCSI** Bus to Add a SCSI Device Without rebooting the VM using the following command  
+First, check the name(s) of your scsi devices.  
+```bash
+ls /sys/class/scsi_device/
+```
+
+Then rescan the scsi bus. Below you can replace the '0\\:0\\:0\\:0′ with the actual scsi bus name found with the previous command. Each colon is prefixed with a slash, which is what makes it look weird.
+```bash
+echo 1 > /sys/class/scsi_device/0\:0\:0\:0/device/rescan
+```  
+  
+## **Reference:**  
+- [https://access.redhat.com/solutions/5540131](https://access.redhat.com/solutions/5540131)  
+- [https://www.redhat.com/sysadmin/resize-lvm-simple](https://www.redhat.com/sysadmin/resize-lvm-simple)  
+- [https://communities.vmware.com/t5/vSphere-Hypervisor-Discussions/Expand-Space-without-Rebooting-VM/td-p/923809](https://communities.vmware.com/t5/vSphere-Hypervisor-Discussions/Expand-Space-without-Rebooting-VM/td-p/923809)
