@@ -5,7 +5,7 @@ modified: 2024-09-03 09:10:00 +0700
 tags: [linux, networking, router]
 description: ""
 ---
-### **Configure Linux NAT Forwarding**
+# **Configure Linux NAT Forwarding**
 
 Enable kernel parameter  
 ```bash
@@ -45,7 +45,7 @@ Reference:
 - [https://wiki.archlinux.org/title/Firewalld#NAT\_masquerade](https://wiki.archlinux.org/title/Firewalld#NAT_masquerade)  
 - [https://serverfault.com/questions/1005682/proxmox-ipv4-inward-routing-not-working](https://serverfault.com/questions/1005682/proxmox-ipv4-inward-routing-not-working)
 
-### **Configure linux simple DNS server for lab purposes**
+# **Configure linux simple DNS server for lab purposes**
 Installing package dependencies  
 ```bash
 dnf install -y dnsmasq
