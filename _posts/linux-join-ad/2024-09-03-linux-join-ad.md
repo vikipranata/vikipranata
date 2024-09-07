@@ -88,4 +88,5 @@ default_tkt_enctypes = arcfour-hmac-md5 des-cbc-crc des-cbc-md5
 ```
 
 Reference:
-- https://discussion.fedoraproject.org/t/kdc-has-no-support-for-encryption-type/77540/3
+- [https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/system-level_authentication_guide/sssd](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/system-level_authentication_guide/sssd)
+- [https://discussion.fedoraproject.org/t/kdc-has-no-support-for-encryption-type/77540/3](https://discussion.fedoraproject.org/t/kdc-has-no-support-for-encryption-type/77540/3)
