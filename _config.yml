@@ -1,7 +1,8 @@
 # Site settings
 title: Viki Pranata
 description: >-
-  This website contains some of my notes from daily work. I'm writing here so I don't forget.
+  This website contains some of my notes from daily work, I'm writing here so I don't forget.
+  Commonly used Linux based on Debian and RHEL derivative distributions in production environments and also use Windows for other needs.
 lang: en-US
 timezone: Asia/Jakarta
 image: assets/img/favicon.png
@@ -12,7 +13,8 @@ mode: dark
 author:
   name: Viki Pranata
   bio: >- 
-    This website contains some of my notes from daily work. I'm writing here so I don't forget.
+    This website contains some of my notes from daily work, I'm writing here so I don't forget.
+    Commonly used Linux based on Debian and RHEL derivative distributions in production environments and also use Windows for other needs.
   username: vikipranata
   github: vikipranata
   twitter: vikipranata
