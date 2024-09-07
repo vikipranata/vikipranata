@@ -8,10 +8,10 @@ description: ""
 
 # **Expand Space without Rebooting VM**
 Current usage disk with `lsblk` command
-![disk-overview.png](disk-overview.png)  
+![disk-overview.webp](uploads/disk-overview.webp)  
 
 And here is LVM partition table  
-![lvm-overview.png](lvm-overview.png)
+![lvm-overview.webp](uploads/lvm-overview.webp)
 
 First step we need grow partition in `/dev/sda3`, install package growpart first  
 ```bash
@@ -23,7 +23,7 @@ Then we resize partition with this command
 growpart /dev/sda 3
 ```
 
-![growpart-result.png](growpart-result.png)
+![growpart-result.webp](uploads/growpart-result.webp)
 
 See the different before and after, if you don't use LVM partition scheme just execute `resize2fs /dev/sda3` to full fill the partition.
 ```bash
@@ -32,14 +32,14 @@ pvs
 vgs
 ```
 
-![pvresize-result.png](pvresize-result.png)
+![pvresize-result.webp](uploads/pvresize-result.webp)
 
 Now you're ready to extent the LVM partition
 ```bash
 lvresize --extents +100%FREE --resizefs /dev/vg0/root
 ```
 
-![lvm-result.png](lvm-result.png)
+![lvm-result.webp](uploads/lvm-result.webp)
 
 If you just resize partition only 20%, this sample command
 ```bash
@@ -60,6 +60,6 @@ echo 1 > /sys/class/scsi_device/0\:0\:0\:0/device/rescan
 ```
 
 **Reference:**  
-- [https://access.redhat.com/solutions/5540131](https://access.redhat.com/solutions/5540131)  
-- [https://www.redhat.com/sysadmin/resize-lvm-simple](https://www.redhat.com/sysadmin/resize-lvm-simple)  
-- [https://communities.vmware.com/t5/vSphere-Hypervisor-Discussions/Expand-Space-without-Rebooting-VM/td-p/923809](https://communities.vmware.com/t5/vSphere-Hypervisor-Discussions/Expand-Space-without-Rebooting-VM/td-p/923809)
+- [https://access.redhat.com/solutions/5540131](uploads/https://access.redhat.com/solutions/5540131)  
+- [https://www.redhat.com/sysadmin/resize-lvm-simple](uploads/https://www.redhat.com/sysadmin/resize-lvm-simple)  
+- [https://communities.vmware.com/t5/vSphere-Hypervisor-Discussions/Expand-Space-without-Rebooting-VM/td-p/923809](uploads/https://communities.vmware.com/t5/vSphere-Hypervisor-Discussions/Expand-Space-without-Rebooting-VM/td-p/923809)
