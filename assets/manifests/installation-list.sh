@@ -2,8 +2,8 @@
 
 sudo dnf install -y epel-release
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.rpm.sh | sudo bash
-curl -sL -o ~/.bashrc https://raw.githubusercontent.com/vikipranata/vikipranata/ghpages/assets/manifests/.bashrc
-curl -sL /etc/skel/.bashrc https://raw.githubusercontent.com/vikipranata/vikipranata/ghpages/assets/manifests/.bashrc
+curl -sLo ~/.bashrc https://raw.githubusercontent.com/vikipranata/vikipranata/ghpages/assets/manifests/.bashrc
+curl -sLo /etc/skel/.bashrc https://raw.githubusercontent.com/vikipranata/vikipranata/ghpages/assets/manifests/.bashrc
 
 cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
