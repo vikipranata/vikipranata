@@ -1,6 +1,10 @@
 #!/bin/bash
+
 sudo dnf install -y epel-release
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.rpm.sh | sudo bash
+curl -sL -o ~/.bashrc https://raw.githubusercontent.com/vikipranata/vikipranata/ghpages/assets/manifests/.bashrc
+curl -sL /etc/skel/.bashrc https://raw.githubusercontent.com/vikipranata/vikipranata/ghpages/assets/manifests/.bashrc
+
 cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
@@ -13,7 +17,7 @@ EOF
 sudo dnf install -y htop iftop iotop ipcalc whois dnsutils net-tools dnf-utils iperf3 nmap curl wget \
                     mlocate ncdu tmux traceroute mtr flameshot gparted speedtest-cli gnome-tweaks \
                     vlc onedrive setroubleshoot policycoreutils kubectl helm smartmontools nvme-cli \
-                    python3-openstackclient python3-pip python3-virtualenv blackbox-terminal fprintd
+                    python3-openstackclient python3-pip python3-virtualenv blackbox-terminal fprintd s3cmd
 
 sudo dnf remove --allowerasing rhythmbox mediawriter \
                 gnome-logs gnome-maps gnome-tour gnome-weather \
@@ -33,14 +37,14 @@ flatpak install -y flathub \
 sudo sed -i 's/^# set tabsize 8/set tabsize 2/' /etc/nanorc
 sudo sed -i 's/^# set tabstospaces/set tabstospaces/' /etc/nanorc
 
-## Gnome Extension ##
-#Windows is Ready - Notification Remover
-#Status Area Horizontal Spacing
-#Notification Banner Reloaded
-#Hide Activities Button
-#Removable Drive Menu
-#Net speed Simplified
-#Frippery Move Clock
-#Clipboard Indicator
-#Blur my Shell
-#Media Control
+## Gnome Extension | https://extensions.gnome.org
+# Windows is Ready - Notification Remover
+# Status Area Horizontal Spacing
+# Notification Banner Reloaded
+# Hide Activities Button
+# Removable Drive Menu
+# Net speed Simplified
+# Frippery Move Clock
+# Clipboard Indicator
+# Blur my Shell
+# Media Control
