@@ -46,5 +46,6 @@ sudo sed -i 's/^# set tabstospaces/set tabstospaces/' /etc/nanorc
 # Net speed Simplified
 # Frippery Move Clock
 # Clipboard Indicator
+# Power Tracker
 # Blur my Shell
 # Media Control
