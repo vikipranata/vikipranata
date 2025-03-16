@@ -133,13 +133,17 @@ params:
 
   label:
     text: "Home"
-    icon: "images/panda.webp"
-    iconHeight: 30
+    # icon: "images/panda.webp"
+    # iconHeight: 30
 
   assets:
     disableHLJS: true
     disableFingerprinting: true
-    favicon: "images/favicon.ico"
+    favicon: "images/panda.webp"
+    favicon16x16: "images/panda.webp"
+    favicon32x32: "images/panda.webp"
+    apple_touch_icon: "images/panda.webp"
+    safari_pinned_tab: "images/panda.webp"
 
   cover:
       hidden: true # hide everywhere but not in structured data
