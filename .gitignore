@@ -1,0 +1,3 @@
+# Spesific ignore for Hugo Site
+public/
+.hugo_build.lock
