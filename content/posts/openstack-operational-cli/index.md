@@ -109,7 +109,9 @@ sudo cat /etc/kolla/neutron-server/ml2_conf.ini | grep flat_network | awk '{prin
 ```
 Then, define the network and subnet with these commands:
 ```bash
-openstack network create --project admin --external --provider-network-type flat --provider-physical-network physnet1 ext-net
+openstack network create --project admin --external --provider-network-type flat \
+--provider-physical-network physnet1 ext-net
+
 openstack subnet create --network ext-net \
 --subnet-range 172.16.1.0/24 --gateway 172.16.1.1 --dns-nameserver 172.16.1.1 \
 --allocation-pool start=172.16.1.242,end=172.16.1.254 --no-dhcp ext-subnet
@@ -139,8 +141,11 @@ openstack router show kuberouter
 ## Creating an Instance
 Once the above steps are in place, you can create an instance with the following commands:
 ```bash
-openstack server create --flavor n1-kubemaster --network kubenet --key-name k8s-key --image ubuntu20-focal --security-group kubesecgroup k8s-master01
-openstack server create --flavor n2-kubeworker --network kubenet --key-name k8s-key --image ubuntu20-focal --security-group kubesecgroup k8s-worker01
+openstack server create --flavor n1-kubemaster --network kubenet \
+--key-name k8s-key --image ubuntu20-focal --security-group kubesecgroup k8s-master01
+
+openstack server create --flavor n2-kubeworker --network kubenet \
+--key-name k8s-key --image ubuntu20-focal --security-group kubesecgroup k8s-worker01
 ```
 
 ## Creating a Floating IP
