@@ -7,7 +7,7 @@ description: "Deployment Openstack Cloud with Kolla Ansible"
 ---
 
 ## *Preparation*
-I used five VM nodes for this home lab project with 16 Cores 16GB Memory and 40GB for the root disk with systems operation _Ubuntu 22.04.5 LTS_.  
+I used five VM nodes for this home lab project with 16 Cores 16GB Memory and 40GB for the root disk with operating systems _Ubuntu 22.04.5 LTS_.  
 
 | *Node Hostname* | *Node Role* | *vCPU* | *Memory* | *RootDisk* | *ManagementNet* | *StorageNet* |
 | -------- | ------- | ------- | ------- | ------- | ------- | ------- |
@@ -24,7 +24,7 @@ Interface mapping:
 - eth2 for Storage Network with Jumbo frames
 - eth4 for Tunnel/Self Service/Guest Network with Jumbo frames
 
-We can review network configuration in [sample-netplan.yaml](https://raw.githubusercontent.com/vikipranata/vikipranata/refs/heads/webhugo/posts/Openstack-kolla-ansible-2024.2/uploads/sample-netplan.yaml)
+We can review network configuration in [sample-netplan.yaml](https://raw.githubusercontent.com/vikipranata/vikipranata/refs/heads/hugo/content/posts/openstack-kolla-ansible-2024.2/uploads/sample-netplan.yaml)
 
 
 Installing NFS Server for Glance Service in `btnlab01adm01` node

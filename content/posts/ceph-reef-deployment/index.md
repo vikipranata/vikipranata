@@ -7,7 +7,7 @@ description: "Deployment SoftwareDefined Storage with Ceph Reef"
 ---
 
 ## *Preparation*
-I used three VM nodes for this home lab project with 8 Cores 8GB Memory and 20GB for the root disk with [Jumbo Frame](https://ceph.io/en/news/blog/2015/ceph-loves-jumbo-frames/) in ClusterNet interface with systems operation _Rocky Linux 8.10_.   
+I used three VM nodes for this home lab project with 8 Cores 8GB Memory and 20GB for the root disk with [Jumbo Frame](https://ceph.io/en/news/blog/2015/ceph-loves-jumbo-frames/) in ClusterNet interface with operating systems _Rocky Linux 8.10_.   
 
 | *Node Hostname* | *vCPU* | *Memory* | *RootDisk* | *PublicNet* | *ClusterNet* |
 | -------- | ------- | ------- | ------- | ------- | ------- |
