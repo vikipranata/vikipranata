@@ -1,7 +1,7 @@
 ---
 title: "Operating OpenStack via CLI"
-date: 2025-03-16 00:00:00 +0700
-modified: 2025-03-16 00:00:00 +0700
+date: 2025-03-17 00:00:00 +0700
+modified: 2025-03-17 00:00:00 +0700
 tags: [linux, openstack, cloud]
 description: "Operating OpenStack via the command line, which can be used for preparing COA (Certified OpenStack Administrator)"
 ---
