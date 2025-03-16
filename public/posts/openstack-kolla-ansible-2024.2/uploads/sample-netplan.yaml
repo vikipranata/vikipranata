@@ -1,0 +1,40 @@
+network:
+  version: 2
+  ethernets:
+    eth0:
+      match:
+        macaddress: "BC:24:11:D3:02:2F"
+      set-name: "eth0"
+      critical: true
+    eth1:
+      match:
+        macaddress: "BC:24:11:77:6F:A2"
+      set-name: "eth1"
+      addresses:
+      - "10.78.78.201/24"
+      nameservers:
+        addresses:
+        - 10.78.78.103
+        - 10.78.78.104
+        search:
+        - homelab.is-a.dev
+      routes:
+      - to: "default"
+        via: "10.78.78.254"
+      critical: true
+    eth2:
+      match:
+        macaddress: "BC:24:11:D6:06:52"
+      set-name: "eth2"
+      addresses:
+      - "10.79.79.201/24"
+      critical: true
+      mtu: 9000
+    eth3:
+      match:
+        macaddress: "BC:24:11:EF:59:FD"
+      set-name: "eth3"
+      addresses:
+      - "10.79.80.201/24"
+      critical: true
+      mtu: 9000

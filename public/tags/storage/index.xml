@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Storage on Viki Pranata</title>
+    <link>http://localhost:1313/tags/storage/</link>
+    <description>Recent content in Storage on Viki Pranata</description>
+    <image>
+      <title>Viki Pranata</title>
+      <url>http://localhost:1313/images/profile.webp</url>
+      <link>http://localhost:1313/images/profile.webp</link>
+    </image>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 15 Mar 2025 00:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/storage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ceph Reef Deployment</title>
+      <link>http://localhost:1313/posts/ceph-reef-deployment/</link>
+      <pubDate>Sat, 15 Mar 2025 00:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/posts/ceph-reef-deployment/</guid>
+      <description>Deployment SoftwareDefined Storage with Ceph Reef</description>
+    </item>
+    <item>
+      <title>Linux Resize Disk</title>
+      <link>http://localhost:1313/posts/linux-resize-disk/</link>
+      <pubDate>Sun, 01 Sep 2024 09:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/posts/linux-resize-disk/</guid>
+      <description>&lt;h2 id=&#34;expand-space-without-rebooting-vm&#34;&gt;&lt;em&gt;Expand Space without Rebooting VM&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;Current usage disk with &lt;code&gt;lsblk&lt;/code&gt; command
+&lt;img alt=&#34;disk-overview&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/linux-resize-disk/uploads/disk-overview.webp&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And here is LVM partition table&lt;br&gt;
+&lt;img alt=&#34;lvm-overview&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/linux-resize-disk/uploads/lvm-overview.webp&#34;&gt;&lt;/p&gt;
+&lt;p&gt;First step we need grow partition in &lt;code&gt;/dev/sda3&lt;/code&gt;, install package growpart first&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;dnf install -y cloud-utils-growpart
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then we resize partition with this command&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;growpart /dev/sda &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;growpart-result&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/linux-resize-disk/uploads/growpart-result.webp&#34;&gt;&lt;/p&gt;
+&lt;p&gt;See the different before and after, if you don&amp;rsquo;t use LVM partition scheme just execute &lt;code&gt;resize2fs /dev/sda3&lt;/code&gt; to full fill the partition.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pvresize /dev/sda3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pvs
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vgs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;pvresize-result&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/linux-resize-disk/uploads/pvresize-result.webp&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

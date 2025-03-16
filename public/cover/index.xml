@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Viki Pranata</title>
+    <link>http://localhost:1313/cover/</link>
+    <description>Recent content on Viki Pranata</description>
+    <image>
+      <title>Viki Pranata</title>
+      <url>http://localhost:1313/assets/images/profile.webp</url>
+      <link>http://localhost:1313/assets/images/profile.webp</link>
+    </image>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>cover</language>
+    <atom:link href="http://localhost:1313/cover/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

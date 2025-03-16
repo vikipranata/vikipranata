@@ -1,0 +1,194 @@
+baseURL: "https://vikipranata.is-a.dev"
+title: "Viki Pranata"
+pagination:
+  pagerSize: 3
+theme: PaperMod
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+# mainsections: ["posts", "papermod"]
+
+minify:
+  disableXML: true
+  # minifyOutput: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    taxonomies:
+      category: categories
+      tag: tags
+      series: series
+    menu:
+      main:
+        - identifier: About
+          name: About
+          url: /about/
+          weight: 10
+        - identifier: Archive
+          name: Archive
+          url: /archives/
+          weight: 10
+        - identifier: Post
+          name: Post
+          url: /posts/
+          weight: 10
+        - identifier: Tag
+          name: Tags
+          url: /tags/
+          weight: 10
+        - identifier: Search
+          name: Search
+          url: /search/
+          weight: 11
+
+params:
+  env: production
+  title: "Viki Pranata - System Administrator | Cloud Engineer | DevOps | Site Reliability Engineer"
+  description: "Viki Pranata is a IT Engineer specializing in Linux-based systems and automation"
+  keywords:
+    - Blogs
+    - Portfolio
+    - Technology
+    - Systems Administrator
+    - Systems Operations Engineer
+    - Site Reliability Engineer
+    - DevOps Engineer
+    - Cloud Engineer
+  author: "Viki Pranata"
+  defaultTheme: auto
+  disableThemeToggle: false
+  ShowShareButtons: true
+  ShowReadingTime: true
+  ShowWordCount: true
+  disableSpecial1stPost: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: false
+  TocOpen: false
+  comments: false
+  images:
+    - "images/profile.webp"
+
+  profileMode:
+    enabled: true
+    Title: "Hi, I'm Viki Pranata"
+    subtitle: >- 
+      This website contains some of my notes from daily work, from a technical perspective, including tips, tricks, and best practices.
+      I work with most common Linux-based distributions (Debian/Ubuntu and RHEL derivatives) and sometimes with other proprietary software for specific use cases.
+      I also utilize various automation tools and follow best practices in production environments.
+      Feel free to explore more about me at:
+    imageUrl: "images/profile.webp"
+    imageTitle: "Viki Pranata"
+    imageWidth: 200
+    imageHeight: 200
+
+  homeInfoParams:
+    Title: "Hi, I'm Viki Pranata"
+    Content: >- 
+      This website contains some of my notes from daily work, from a technical perspective, including tips, tricks, and best practices.
+      I work with most common Linux-based distributions (Debian/Ubuntu and RHEL derivatives) and sometimes with other proprietary software for specific use cases.
+      I also utilize various automation tools and follow best practices in production environments.
+      Feel free to explore more about me at:
+
+  socialIcons:
+    - name: Email
+      url: "mailto:helovikipranata@gmail.com"
+      title: Contact me by email
+    - name: Telegram
+      url: "https://t.me/vikipranata"
+      title: Message me at Telegram
+    - name: Instagram
+      url: "https://instagram.com/vikipranata"
+      title: Follow me on Instagram
+    - name: X
+      url: "https://x.com/vikipranata"
+      title: Follow on X/Twitter
+    - name: Github
+      url: "https://github.com/vikipranata"
+      title: Check out more on Github
+    - name: Linkedin
+      url: "https://www.linkedin.com/in/vikipranata"
+      title: Connect to me on Linkedin
+
+  editPost:
+    URL: "https://github.com/vikipranata/vikipranata/tree/hugo/content"
+    Text: "Suggest Changes"
+    appendFilePath: true
+
+  label:
+    text: "Home"
+    icon: "images/panda.webp"
+    iconHeight: 30
+
+  assets:
+    disableHLJS: true
+    disableFingerprinting: true
+    favicon: "images/favicon.ico"
+
+  cover:
+      hidden: true # hide everywhere but not in structured data
+      hiddenInList: true # hide on list pages and home
+      hiddenInSingle: true # hide on single page
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content", "tags"]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    # anchorLineNos: true
+    # codeFences: true
+    # guessSyntax: true
+    # lineNos: true
+    # style: monokai
+
+services:
+  instagram:
+    disableInlineCSS: true
+  x:
+    disableInlineCSS: true
+  googleAnalytics:
+    id: G-5K588K9WJP
+
+  # analytics:
+  #     google:
+  #         SiteVerificationTag: "G-5K588K9WJP"
+
+# privacy:
+#   twitter:
+#     disabled: false
+#     enableDNT: true
+#     simple: true
+#   instagram:
+#     disabled: false
+#     simple: true
+#   youtube:
+#     disabled: false
+#     privacyEnhanced: true
