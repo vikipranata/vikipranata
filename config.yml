@@ -88,7 +88,7 @@ params:
   profileMode:
     enabled: true
     Title: "Hi, I'm Viki Pranata"
-    subtitle: >- 
+    subtitle: >-
       This website contains some of my notes from daily work, from a technical perspective, including tips, tricks, and best practices.
       I work with most common Linux-based distributions (Debian/Ubuntu and RHEL derivatives) and sometimes with other proprietary software for specific use cases.
       I also utilize various automation tools and follow best practices in production environments.
@@ -100,7 +100,7 @@ params:
 
   homeInfoParams:
     Title: "Hi, I'm Viki Pranata"
-    Content: >- 
+    Content: >-
       This website contains some of my notes from daily work, from a technical perspective, including tips, tricks, and best practices.
       I work with most common Linux-based distributions (Debian/Ubuntu and RHEL derivatives) and sometimes with other proprietary software for specific use cases.
       I also utilize various automation tools and follow best practices in production environments.
@@ -139,11 +139,11 @@ params:
   assets:
     disableHLJS: true
     disableFingerprinting: true
-    favicon: "images/panda.webp"
-    favicon16x16: "images/panda.webp"
-    favicon32x32: "images/panda.webp"
-    apple_touch_icon: "images/panda.webp"
-    safari_pinned_tab: "images/panda.webp"
+    favicon: "favicon.ico"
+    favicon16x16: "images/favicon-16x16.png"
+    favicon32x32: "images/favicon-32x32.png"
+    apple_touch_icon: "images/apple-touch-icon.png"
+    safari_pinned_tab: "images/safari-pinned-tab.svg"
 
   cover:
       hidden: true # hide everywhere but not in structured data
