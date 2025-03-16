@@ -1,0 +1,15 @@
+- title: Home
+  url: /
+  external: false
+
+- title: Archive
+  url: /archive/
+  external: false
+
+- title: About
+  url: /about/
+  external: false
+
+- title: Contact
+  url: "mailto:helovikipranata@gmail.com"
+  external: true

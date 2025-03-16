@@ -1,0 +1,88 @@
+# Site settings
+title: "Hi, I'm Viki Pranata"
+description: >-
+    This website contains some of my notes from daily work from a technical perspective, tips and tricks and practices.
+    Mainly working with Linux based distributions (Debian and RHEL derivatives), sometimes working with Windows for specific use cases, utilizing various automation tools and best practices in production environments.
+lang: en-US
+timezone: Asia/Jakarta
+image: assets/img/favicon.ico
+repo: https://github.com/vikipranata/vikipranata/tree/ghpages
+mode: dark
+
+# Profile settings
+author:
+  name: "Hi, I'm Viki Pranata"
+  bio: >-
+    This website contains some of my notes from daily work from a technical perspective, tips and tricks and practices.
+    Mainly working with Linux based distributions (Debian and RHEL derivatives), sometimes working with Windows for specific use cases, utilizing various automation tools and best practices in production environments.
+  email: helovikipranata@gmail.com
+  avatar: /assets/img/profile.webp
+
+# URL settings
+url: "https://vikipranata.is-a.dev"
+baseurl: "https://vikipranata.is-a.dev"
+permalink: /:title/
+google_analytics: G-5K588K9WJP
+fb_appid: ""
+
+# Collection setting
+collections:
+  posts:
+    output: true
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: post
+      comments: false
+
+# Jekyll Compose default front matter
+jekyll_compose:
+  post_default_front_matter:
+    modified:
+    tags: []
+    description:
+  draft_default_front_matter:
+    modified:
+    tags: []
+    description:
+
+# Homepage limit posts
+number_of_posts: 5
+
+# Build settings
+# theme: klise
+sass:
+  style: compressed
+
+include:
+  - _redirects
+  - .htaccess
+
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - CHANGELOG.md
+  - README.md
+  - node_modules
+  - CODE_OF_CONDUCT.md
+  - CONTRIBUTING.md
+  - lighthouse.png
+  - klise-*.gem
+  - klise.gemspec
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-postfiles
