@@ -17,20 +17,20 @@ To view my full profile, please connect with me on [LinkedIn](https://www.linked
 5. [PT Biznet Gio Nusantara](https://www.biznetgio.com), IT Architecture Engineer, 2024 - now
 
 # Achievment
-1. [Certified Kubernetes Administrator](/assets/certificates/CKA-1.pdf), issued on 10 January 2023
-2. [Certified OpenStack Administrator](/assets/certificates/COA-1.pdf), issued on 12 January 2023
+1. [Certified Kubernetes Administrator](certificates/CKA-1.pdf), issued on 10 January 2023
+2. [Certified OpenStack Administrator](certificates/COA-1.pdf), issued on 12 January 2023
 3. [Mikrotik Certified Network Associate](https://mikrotik.com/training/certificates/c268877cbbad0bc5a9fd), issued on 20 July 2023
 
 # Training
-- Coursera, [Google Cloud Platform Fundamentals: Core Infrastructure](/assets/certificates/Coursera_WUDEXPXXFHC2.pdf), 21 June 2020
-- Coursera, [Essential Cloud Infrastructure: Foundation](assets/certificates/Coursera_C6BD24GCYTCL.pdf), 06 July 2020
-- Digital Talent Scholarship - Kominfo, [PROA - Container, Kubernetes & OpenShift](assets/certificates/DTSPROA0970975131-10.pdf), 30 April 2021
-- Adinusa, [Linux System Administration](https://sertiva.id/credential/98faba75-ee4b-4b9b-a418-6f73f7d69c50), 08 July 2021
-- Adinusa, [Docker For DevOps](https://sertiva.id/credential/b472afc8-5d3d-4326-a417-9c468927cc51), 26 July 2021
-- Adinusa, [Ansible Administration](https://sertiva.id/credential/2bfd783d-d9a7-43fb-b47b-6a17ced02ae2), 10 August 2021
-- Adinusa, [Kubernetes Administration](https://sertiva.id/credential/31ff9dac-5d1b-4e4a-91c1-6c0ce056dd37), 18 August 2021
-- Adinusa, [Ceph Administration](https://sertiva.id/credential/d1c25987-1978-4f1c-9274-d1acac81af55), 23 August 2021
-- Adinusa, [OpenStack Administration](https://sertiva.id/credential/29b72616-eada-438c-b42e-470e3b4cedbe), 31 August 2021
+- Coursera, [Google Cloud Platform Fundamentals: Core Infrastructure](certificates/Coursera_WUDEXPXXFHC2.pdf), 21 June 2020
+- Coursera, [Essential Cloud Infrastructure: Foundation](certificates/Coursera_C6BD24GCYTCL.pdf), 06 July 2020
+- Digital Talent Scholarship - Kominfo, [PROA - Container, Kubernetes & OpenShift](certificates/DTSPROA0970975131-10.pdf), 30 April 2021
+- Adinusa, [Linux System Administration](#https://sertiva.id/credential/98faba75-ee4b-4b9b-a418-6f73f7d69c50), 08 July 2021
+- Adinusa, [Docker For DevOps](#https://sertiva.id/credential/b472afc8-5d3d-4326-a417-9c468927cc51), 26 July 2021
+- Adinusa, [Ansible Administration](#https://sertiva.id/credential/2bfd783d-d9a7-43fb-b47b-6a17ced02ae2), 10 August 2021
+- Adinusa, [Kubernetes Administration](#https://sertiva.id/credential/31ff9dac-5d1b-4e4a-91c1-6c0ce056dd37), 18 August 2021
+- Adinusa, [Ceph Administration](#https://sertiva.id/credential/d1c25987-1978-4f1c-9274-d1acac81af55), 23 August 2021
+- Adinusa, [OpenStack Administration](#https://sertiva.id/credential/29b72616-eada-438c-b42e-470e3b4cedbe), 31 August 2021
 - Dicoding, [Belajar Dasar-Dasar DevOps](https://www.dicoding.com/dicodingassets/coursecertificate/261b3da3220112569c81805ca4b5dbb75d23f0b9/view), 23 January 2023
 - Dicoding, [Belajar Jaringan Komputer untuk Pemula](https://www.dicoding.com/dicodingassets/coursecertificate/43b3f90486776eb7d6b3f76b005e1bfd60da8f59/view), 24 January 2023
 - Dicoding, [Cloud Practitioner Essentials (Belajar Dasar AWS Cloud)](https://www.dicoding.com/dicodingassets/coursecertificate/1aaf4417ddcf52e90e3229be08e727b11959133d/view), 07 Maret 2023
