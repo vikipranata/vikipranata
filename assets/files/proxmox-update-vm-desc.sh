@@ -64,4 +64,4 @@ for vmid in $vmid_list; do
     sleep 10s
 done
 
-log_message "Successfully update description of $updated_vms_count VM with json format"
+log_message "Task check and update of $updated_vms_count VM description with json format completed"
