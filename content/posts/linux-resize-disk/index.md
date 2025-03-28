@@ -59,6 +59,13 @@ Then rescan the scsi bus. Below you can replace the '0\\:0\\:0\\:0′ with the a
 echo 1 > /sys/class/scsi_device/0\:0\:0\:0/device/rescan
 ```
 
+## *Resize disk but no space left*
+if there is a condition where there is no space left on the block device, you can use the following command:
+```bash
+mount -o size=10M,rw,nodev,nosuid -t tmpfs tmpfs /tmp
+```
+then do the same workaround to resize the disk
+
 ## *References*
 - [https://access.redhat.com/solutions/5540131](uploads/https://access.redhat.com/solutions/5540131)  
 - [https://www.redhat.com/sysadmin/resize-lvm-simple](uploads/https://www.redhat.com/sysadmin/resize-lvm-simple)  
